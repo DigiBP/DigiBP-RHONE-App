@@ -79,7 +79,7 @@
     <script>
         var botmanWidget = {
             aboutText: 'onicial GmbH',
-            introMessage: "✋ Hi! I'm your DigiBP Rhône Bot"
+            introMessage: "✋ Hi! I'm your DigiBP Rhône"
         };
     </script>
 
