@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use BotMan\BotMan\BotManFactory;
+use BotMan\BotMan\Drivers\DriverManager;
 use BotMan\BotMan\Messages\Incoming\Answer;
 
 class BotManController extends Controller
@@ -13,7 +15,16 @@ class BotManController extends Controller
 
     public function handle()
     {
-        $botman = app('botman');
+        DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
+
+        $configuration = [
+
+            'telegram' => [
+                'token' => config('botman.telegram.token')
+            ]
+        ];
+
+        $botman = BotManFactory::create($configuration);
 
         $botman->hears('{message}', function($botman, $message) {
 
@@ -38,7 +49,7 @@ class BotManController extends Controller
             $name = $answer->getText();
 
             $this->say('Nice to meet you '.$name);
-            
+
         });
     }
 }

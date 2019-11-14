@@ -11,6 +11,7 @@ return [
     | web endpoint, to see if the request should match the web driver.
     |
     */
+
     'matchingData' => [
         'driver' => 'web',
     ],
