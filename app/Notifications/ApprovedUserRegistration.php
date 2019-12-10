@@ -45,7 +45,7 @@ class ApprovedUserRegistration extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('DigiBP Rhône - Patient registration')
+                    ->subject('DigiBP Rhône - Your credentials')
                     ->greeting('Dear Patient')
                     ->line('You\'ve successfully registered for The Clinical Trial. Find your credentials attached:')
                     ->line('Username: ' . $this->user->email)

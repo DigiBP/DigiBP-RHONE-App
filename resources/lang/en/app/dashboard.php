@@ -14,5 +14,12 @@ return [
         'button' => 'Save'
     ],
 
+    'applications' => [
+        'title' => 'Applications',
+        'subtitle' => 'Proceed with your Clinical Trial application',
+
+    ],
+
+
 
 ];

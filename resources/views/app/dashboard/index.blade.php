@@ -18,10 +18,10 @@
 
             <div class="mt-2">
 
-                <form class="mt-6" method="POST" action="{{ route('profile.update') }}">
+                <form class="" method="POST" action="{{ route('profile.update') }}">
                     @csrf
 
-                    <div class="flex flex-wrap mb-6">
+                    <div class="flex flex-wrap mb-2">
                         <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
                             {{ __('app/dashboard.form.name') }}
                         </label>
@@ -46,6 +46,15 @@
                 </form>
 
             </div>
+
+            @if(config('digibp.applications_enabled'))
+                <div class="mt-6">
+                    <div class="font-bold text-xl">  {{ __('app/dashboard.applications.title') }}</div>
+                    <div class="font-light text-lg mb-2">  {{ __('app/dashboard.applications.subtitle') }}</div>
+                </div>
+            @endif
+
+
         </div>
     </div>
 

@@ -49,6 +49,8 @@ class PatientsController extends Controller
                     'reason' => 'Someone has manually declined your request!'
                 ]
             ]);
+
+            sleep(3);
         }
         catch (\Exception $exception)
         {

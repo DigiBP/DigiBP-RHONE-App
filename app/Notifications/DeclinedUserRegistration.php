@@ -44,7 +44,7 @@ class DeclinedUserRegistration extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('DigiBP Rhône - Patient registration')
+                    ->subject('DigiBP Rhône - Declined registration')
                     ->greeting('Dear Patient')
                     ->line('Unfortunately you\'re registration could not be processed because of the following reason:')
                     ->line($this->reason)

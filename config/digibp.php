@@ -10,6 +10,8 @@ return [
         'post_registration' => '/app/registration',
         'post_application' => '/app/application'
 
-    ]
+    ],
+
+    'applications_enabled' => env('APPLICATIONS_ENABLED', false)
 
 ];
