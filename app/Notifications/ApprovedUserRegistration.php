@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -12,8 +12,7 @@ class ApprovedUserRegistration extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $email;
-    protected $password;
+    protected $user;
 
     /**
      * Create a new notification instance.
@@ -21,10 +20,9 @@ class ApprovedUserRegistration extends Notification implements ShouldQueue
      * @return void
      */
 
-    public function __construct($email, $password)
+    public function __construct(User $user)
     {
-        $this->email = $email;
-        $this->password = $password;
+        $this->user = $user;
     }
 
     /**
@@ -50,8 +48,8 @@ class ApprovedUserRegistration extends Notification implements ShouldQueue
                     ->subject('DigiBP Rhône - Patient registration')
                     ->greeting('Dear Patient')
                     ->line('You\'ve successfully registered for The Clinical Trial. Find your credentials attached:')
-                    ->line('Username: ' . $this->email)
-                    ->line('Password: ' . $this->password)
+                    ->line('Username: ' . $this->user->email)
+                    ->line('Password: ' . $this->user->password_decrypt)
                     ->action('Authorize', route('dashboard.index'))
                     ->line('Thank you for using our application!');
     }

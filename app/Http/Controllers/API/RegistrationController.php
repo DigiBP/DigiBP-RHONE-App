@@ -23,11 +23,7 @@ class RegistrationController extends Controller
                     'status' => Patient::STATUS_APPROVED
                 ]);
                 $user = $patient->user;
-                $password = Str::random(12);
-                $user->update([
-                    'password' => bcrypt($password),
-                ]);
-                $user->notify(new ApprovedUserRegistration($user->email, $password));
+                $user->notify(new ApprovedUserRegistration($user));
                 break;
             default:
                 return Response::json(['message' => 'Registration status is already approved'],403);
