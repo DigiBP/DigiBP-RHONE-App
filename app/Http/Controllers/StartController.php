@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+
 class StartController extends Controller
 {
 
@@ -9,6 +11,8 @@ class StartController extends Controller
     {
         $register_icon = config('app.url') . '/images/register.png';
 
-        return view('start', compact('register_icon'));
+        $minimum_age = Carbon::today()->subYear(18)->toDateString();
+
+        return view('start', compact('register_icon','minimum_age'));
     }
 }

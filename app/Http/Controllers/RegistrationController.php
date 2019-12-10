@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SubmitRegistrationRequest;
-
 use App\Models\User;
 
 class RegistrationController extends Controller
@@ -18,7 +17,13 @@ class RegistrationController extends Controller
         'birthdate' => $request->birthdate
        ]);
 
-       //Submit Patient to Camunda
+       /*
+        *  Submit Patient UUID & Birthdate to Camunda
+        */
+
+        flash('Registration successfully submitted');
+
+       return back();
 
     }
 }

@@ -1,14 +1,33 @@
 @extends('layouts.default')
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/botman-widget.css') }}">
+   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/botman-widget.css') }}"> --}}
 @endsection
 
 @section('content')
     <div class="md:w-1/2 md:mx-auto mt-24">
+
         <div class="p-6">
-            <div class="font-bold text-xl mb-2">  {{ __('app/start.title') }}</div>
+            <div class="font-bold text-xl">  {{ __('app/start.title') }}</div>
             <div class="font-light text-lg mb-2">  {{ __('app/start.subtitle') }}</div>
+
+            @if(flash()->message)
+                <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-6"
+                     role="alert">
+                    <div class="flex">
+                        <div class="py-1">
+                            <svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 20 20">
+                                <path
+                                    d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold">  {{ flash()->message }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
 
             <form class="mt-6" method="POST" action="{{ route('registration.store') }}">
                 @csrf
@@ -34,9 +53,9 @@
                         {{ __('app/start.form.birthdate') }}
                     </label>
 
-                    <input id="birthdate" type="text" placeholder="{{ __('app/start.form.birthdate') }}"
+                    <input id="birthdate" type="text"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('password') border-red-500 @enderror"
-                           name="birthdate" required>
+                           name="birthdate" placeholder=" {{ __('app/start.form.minimum') . ' ' . $minimum_age }}" required>
 
                     @error('birthdate')
                     <p class="text-red-500 text-xs italic mt-4">
@@ -46,11 +65,13 @@
                 </div>
 
                 <div class="flex mb-6">
-                    <input type="checkbox" name="confirmed_diagnosis" id="confirmed_diagnosis" {{ old('confirmed_diagnosis') ? 'checked' : '' }} required>
+                    <input class="mt-1" type="checkbox" name="confirmed_diagnosis" id="confirmed_diagnosis"
+                           {{ old('confirmed_diagnosis') ? 'checked' : '' }} required>
 
-                    <label class="text-sm text-gray-700 ml-3" for="confirmed_diagnosis">
+                    <label class="text-sm text-gray-700 ml-2" for="confirmed_diagnosis">
                         {{ __('app/start.form.confirmed_diagnosis') }}
                     </label>
+                    <a class="underline text-sm text-blue-700 ml-1" target="_blank" href="{{ route('diagnosis.index') }}"><span class="text-xs">{{ __('app/start.form.more_information') }}</span></a>
                 </div>
 
                 <div class="flex flex-wrap items-center">

@@ -15,7 +15,14 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->uuid('uuid')->unique();
+
+
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->string('status')->default(\App\Models\Patient::STATUS_UNAPPROVED);
+
             $table->date('birthdate')->nullable();
             $table->timestamps();
         });

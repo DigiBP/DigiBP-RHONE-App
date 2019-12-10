@@ -6,23 +6,21 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class CompleteUserRegistartion extends Notification
+class DeclinedUserRegistration extends Notification
 {
     use Queueable;
 
-    protected $name;
-    protected $email;
-    protected $password;
+    public $reason;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($name, $email, $password)
+
+    public function __construct($reason)
     {
-        $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
+        $this->reason = $reason;
     }
 
     /**
@@ -46,9 +44,9 @@ class CompleteUserRegistartion extends Notification
     {
         return (new MailMessage)
                     ->subject('DigiBP Rhône - Patient registration')
-                    ->greeting('Dear ' . $this->name)
-                    ->line('You\'ve successfully registreted for The Clinical Trial application. Find your credentials attached')
-                    ->action('Authorize', url('/dashboard'))
+                    ->greeting('Dear Patient')
+                    ->line('Unfortunately you\'re registration could not be processed because of the following reason:')
+                    ->line($this->reason)
                     ->line('Thank you for using our application!');
     }
 

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','email', 'password',
+        'name','email', 'password','password_decrypt'
     ];
 
     /**
@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password','password_decrypt','remember_token',
     ];
 
     /**
@@ -44,10 +44,9 @@ class User extends Authenticatable
         static::saving(function ($model) {
 
             $random = Str::random();
-
             $model->name = $random;
+            $model->password_decrypt = $random;
             $model->password = bcrypt($random);
-
         });
     }
 

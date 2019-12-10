@@ -43,7 +43,8 @@ class CreateUserJob implements ShouldQueue
            'name' => $this->name,
            'age' => $this->age,
            'email' => $this->email,
-           'password' => bcrypt($password)
+           'password_decrypt' => $password,
+           'password' => bcrypt($password),
         ]);
     }
 }

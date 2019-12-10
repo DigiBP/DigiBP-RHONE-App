@@ -13,6 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/registration/approve', 'API\RegistrationController@approve');
+Route::post('/registration/decline', 'API\RegistrationController@decline');
