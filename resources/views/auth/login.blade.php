@@ -61,6 +61,11 @@
                                 </a>
                             @endif
 
+                            <span class="ml-2 mr-2 text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap">|</span>
+                            <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline " href="{{ route('start.index') }}">
+                                {{ __('Start') }}
+                            </a>
+
                             @if (Route::has('register'))
                                 <p class="w-full text-xs text-center text-gray-700 mt-8 -mb-4">
                                     {{ __("Don't have an account?") }}

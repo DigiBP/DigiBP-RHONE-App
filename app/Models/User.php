@@ -44,7 +44,6 @@ class User extends Authenticatable
         static::saving(function ($model) {
 
             $random = Str::random();
-            $model->name = $random;
             $model->password_decrypt = $random;
             $model->password = bcrypt($random);
         });

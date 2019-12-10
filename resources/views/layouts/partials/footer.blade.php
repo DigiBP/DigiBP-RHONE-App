@@ -15,5 +15,19 @@
                 </div>
             </div>
         </div>
+
+
+        @auth
+            <div class="mt-2">
+                <a class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" href="{{ route('logout') }}"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('app/dashboard.logout') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+         @endauth
+
     </footer>
 </div>

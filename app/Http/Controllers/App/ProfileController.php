@@ -3,28 +3,29 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\App\UpdateProfileRequest;
 
-class DashboardController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function update(UpdateProfileRequest $request)
     {
         $user = auth()->user();
 
-        return view('app.dashboard.index', compact('user'));
+        $user->update([
+            'name' => $request->name
+        ]);
+
+       return back();
     }
 }

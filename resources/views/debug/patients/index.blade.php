@@ -6,7 +6,7 @@
         <div class="md:mx-auto">
             <div class="text-gray-900 tracking-tight">
                 <span class="text-3xl font-bold">{{ __('Patients') }}</span>
-                <span class="text-3xl font-light">
+                <span class="text-2xl font-light">
                      @if(!empty($patients) && $patients->count())
                         ({{$patients->count()}})
                     @endif
@@ -32,20 +32,20 @@
             @endif
 
             @if(!empty($patients) && $patients->count())
-            <div class="mt-2">
-                <table class="table-auto text-xs ">
-                    <thead>
-                    <tr>
-                        <th class="px-4 py-2">UUID</th>
-                        <th class="px-4 py-2">Status</th>
-                        <th class="px-4 py-2">Name</th>
-                        <th class="px-4 py-2">E-Mail</th>
-                        <th class="px-4 py-2">Password</th>
-                        <th class="px-4 py-2">Birthdate</th>
-                        <th class="px-4 py-2"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="mt-2">
+                    <table class="table-auto text-xs ">
+                        <thead>
+                        <tr>
+                            <th class="px-4 py-2">UUID</th>
+                            <th class="px-4 py-2">Status</th>
+                            <th class="px-4 py-2">Name</th>
+                            <th class="px-4 py-2">E-Mail</th>
+                            <th class="px-4 py-2">Password</th>
+                            <th class="px-4 py-2">Birthdate</th>
+                            <th class="px-4 py-2"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         @foreach($patients as $patient)
                             <tr>
                                 <td class="border px-4 py-2">{{ $patient->uuid }}</td>
@@ -55,21 +55,44 @@
                                 <td class="border px-4 py-2">{{ $patient->user->password_decrypt }}</td>
                                 <td class="border px-4 py-2">{{ $patient->birthdate }}</td>
                                 <td class="border px-4 py-2">
-                                    <a href="{{ route('debug.patients.delete', $patient) }}">
+                                    <a class="" href="{{ route('debug.patients.delete', $patient) }}">
                                         <i class="fal fa-minus-circle"></i>
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                @else
-                    <div class="mt-2">
-                        <p>No patients</p>
-                    </div>
-                @endif
 
-            </div>
+                            @if($patient->status === \App\Models\Patient::STATUS_UNAPPROVED)
+                                <tr class="">
+                                    <td class="border px-4 py-2"></td>
+                                    <td class="border px-4 py-2">
+                                        <a class="text-xs text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline"
+                                           href="{{ route('debug.patients.approve', $patient) }}">
+                                            Approve
+                                        </a>
+                                        |
+                                        <a class="text-xs text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline"
+                                           href="{{ route('debug.patients.decline', $patient) }}">
+                                            Decline
+                                        </a>
+                                    </td>
+                                    <td class="border px-4 py-2"></td>
+                                    <td class="border px-4 py-2"></td>
+                                    <td class="border px-4 py-2"></td>
+                                    <td class="border px-4 py-2"></td>
+                                    <td class="border px-4 py-2"></td>
+                                </tr>
+                            @endif
+
+                        @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                        <div class="mt-2">
+                            <p>No patients</p>
+                        </div>
+                    @endif
+
+                </div>
         </div>
     </div>
 

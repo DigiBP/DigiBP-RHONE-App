@@ -13,5 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/registration/approve', 'API\RegistrationController@approve');
-Route::post('/registration/decline', 'API\RegistrationController@decline');
+Route::post('/registration/approve', 'API\RegistrationController@approve')->name('api.registraiton.approve');
+Route::post('/registration/decline', 'API\RegistrationController@decline')->name('api.registraiton.decline');
