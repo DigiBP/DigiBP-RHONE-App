@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('styles')
-   {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/botman-widget.css') }}"> --}}
 @endsection
 
 @section('content')
@@ -90,30 +89,4 @@
 
 
 @section('scripts')
-
-    {{--    <script src='{{ asset('js/botman-widget-min.js') }}'></script>
-
-
-      <a class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
-                       onclick="botmanChatWidget.open()">
-                        Start registration
-                    </a>
-
-
-        <script>
-            var botmanWidget = {
-                title: "Registration",
-                aboutText: '(c) Sebastian Fix',
-                introMessage: 'Dear Patient, enter "Start" to begin with the registration process.',
-                displayMessageTime: true,
-                mainColor: '#edf2f8',
-                bubbleBackground: '#edf2f8',
-                bubbleAvatarUrl: '{{ $register_icon }}',
-                desktopHeight: 500,
-                desktopWidth: 500,
-                aboutLink: 'https://www.onicial.ch'
-            };
-        </script>--}}
-
-
 @endsection

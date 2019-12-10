@@ -5,11 +5,11 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\ApprovedRegistrationRequest;
 use App\Http\Requests\API\DeclinedRegistrationRequest;
+use App\Jobs\DeleteUserJob;
 use App\Models\Patient;
 use App\Notifications\ApprovedUserRegistration;
 use App\Notifications\DeclinedUserRegistration;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Str;
 
 class RegistrationController extends Controller
 {
@@ -39,13 +39,14 @@ class RegistrationController extends Controller
             case Patient::STATUS_UNAPPROVED:
                 $user = $patient->user;
                 $user->notify(new DeclinedUserRegistration($request->reason));
-                $user->delete();
+
+                DeleteUserJob::dispatch($user);
+
                 break;
 
             default:
                 return Response::json(['message' => 'You can only decline unapproved registrations'],403);
                 break;
-
         }
     }
 

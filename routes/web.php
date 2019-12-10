@@ -3,7 +3,6 @@
 Auth::routes(['login' => true, 'register' => false, 'reset' => true, 'verify' => false]);
 
 Route::get('/', 'StartController@index')->name('start.index');
-
 Route::post('/registration', 'RegistrationController@store')->name('registration.store');
 
 Route::get('/diagnosis', 'DiagnosisController@index')->name('diagnosis.index');
