@@ -1,8 +1,6 @@
 <?php
 
 return [
-
-
     'title' => 'Diagnosis',
     'subtitle' => 'What does it mean?',
 

@@ -18,7 +18,7 @@ Route::middleware(['auth'])->group(function ()
     Route::get('/application/create/{patient}', 'App\ApplicationController@create')->name('application.create');
 
     Route::get('/application/demography', 'App\DemographyController@index')->name('application.demography.index');
-    Route::post('/application/demography', 'App\DemographyController@update')->name('application.demography.update');
+    Route::post('/application/demography/{patient}', 'App\DemographyController@update')->name('application.demography.update');
 
     Route::get('/application/diabetes', 'App\DiabetesController@index')->name('application.diabetes.index');
     Route::post('/application/diabetes', 'App\DiabetesController@update')->name('application.diabetes.update');

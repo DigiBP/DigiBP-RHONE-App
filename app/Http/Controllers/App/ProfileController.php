@@ -9,7 +9,6 @@ use App\Models\Patient;
 
 class ProfileController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -24,6 +23,8 @@ class ProfileController extends Controller
         ]);
 
         DetermineGenderJob::dispatch($user->patient);
+
+        sleep(1);
 
        return back();
     }
