@@ -28,7 +28,7 @@ class CreateApplicationsTable extends Migration
             $table->string('demography_nutrition')->nullable();
             $table->string('demography_mobility')->nullable();
 
-            $table->string('diabetes_quality_of_life_status')->default(\App\Models\Application::DIABETIS_QUALITY_OF_LIFE_STATUS_OPEN);
+            $table->string('diabetes_quality_of_life_status')->default(\App\Models\Application::DIABETES_QUALITY_OF_LIFE_STATUS_OPEN);
 
             $table->timestamps();
         });

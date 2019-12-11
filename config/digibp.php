@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'version' => '10.12.2019',
+    'version' => '11.12.2019',
 
     'camunda' => [
 
