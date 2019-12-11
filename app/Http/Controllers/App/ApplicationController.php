@@ -17,27 +17,10 @@ class ApplicationController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function create(Patient $patient)
     {
-        $user = auth()->user();
-
-        return view('app.application.index', compact('user'));
-    }
-
-    public function gender(Patient $patient)
-    {
-        $gender = Patient::GENDER_DIVERSE;
-
-        switch ($patient->gender) {
-            case Patient::GENDER_MALE:
-                $gender = Patient::GENDER_FEMALE;
-        break;
-            case Patient::GENDER_FEMALE:
-                $gender = Patient::GENDER_MALE;
-        }
-
-        $patient->update([
-           'gender' => $gender
+        $application = $patient->application()->create([
+            'patient_id' => $patient->id
         ]);
 
         return back();

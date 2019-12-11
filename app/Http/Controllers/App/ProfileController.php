@@ -5,14 +5,10 @@ namespace App\Http\Controllers\App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\UpdateProfileRequest;
 use App\Jobs\DetermineGenderJob;
+use App\Models\Patient;
 
 class ProfileController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
 
     public function __construct()
     {
@@ -30,5 +26,24 @@ class ProfileController extends Controller
         DetermineGenderJob::dispatch($user->patient);
 
        return back();
+    }
+
+    public function gender(Patient $patient)
+    {
+        $gender = Patient::GENDER_DIVERSE;
+
+        switch ($patient->gender) {
+            case Patient::GENDER_MALE:
+                $gender = Patient::GENDER_FEMALE;
+                break;
+            case Patient::GENDER_FEMALE:
+                $gender = Patient::GENDER_MALE;
+        }
+
+        $patient->update([
+            'gender' => $gender
+        ]);
+
+        return back();
     }
 }

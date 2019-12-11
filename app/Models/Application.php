@@ -11,12 +11,13 @@ class Application extends Model
     const DEMOGRAPHY_STATUS_APPROVED = 'approved';
     const DEMOGRAPHY_STATUS_DECLINED = 'declined';
 
-    const DIABETIS_QUALITY_OF_LIFE_STATUS_OPEN = 'open';
-    const DIABETIS_QUALITY_OF_LIFE_STATUS_VALIDATING = 'validating';
-    const DIABETIS_QUALITY_OF_LIFE_STATUS_APPROVED = 'approved';
-    const DIABETIS_QUALITY_OF_LIFE_STATUS_DECLINED = 'declined';
+    const DIABETES_QUALITY_OF_LIFE_STATUS_OPEN = 'open';
+    const DIABETES_QUALITY_OF_LIFE_STATUS_VALIDATING = 'validating';
+    const DIABETES_QUALITY_OF_LIFE_STATUS_APPROVED = 'approved';
+    const DIABETES_QUALITY_OF_LIFE_STATUS_DECLINED = 'declined';
 
     protected $fillable = [
+        'patient_id',
         'demography_status',
         'demography_education',
         'demography_employment',

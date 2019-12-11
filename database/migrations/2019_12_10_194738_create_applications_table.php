@@ -20,16 +20,15 @@ class CreateApplicationsTable extends Migration
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
 
             $table->string('demography_status')->default(\App\Models\Application::DEMOGRAPHY_STATUS_OPEN);
-            $table->string('demography_education');
-            $table->string('demography_employment');
-            $table->string('demography_digital_apps');
-            $table->string('demography_social_media');
-            $table->string('demography_patient_communities');
-            $table->string('demography_nutrition');
-            $table->string('demography_mobility');
+            $table->string('demography_education')->nullable();
+            $table->string('demography_employment')->nullable();
+            $table->string('demography_digital_apps')->nullable();
+            $table->string('demography_social_media')->nullable();
+            $table->string('demography_patient_communities')->nullable();
+            $table->string('demography_nutrition')->nullable();
+            $table->string('demography_mobility')->nullable();
 
-
-            $table->string('diabetes_quality_of_life_status');
+            $table->string('diabetes_quality_of_life_status')->default(\App\Models\Application::DIABETIS_QUALITY_OF_LIFE_STATUS_OPEN);
 
             $table->timestamps();
         });

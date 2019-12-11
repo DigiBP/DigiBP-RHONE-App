@@ -4,21 +4,43 @@ return [
 
     'welcome' => 'Welcome',
 
-    'logout' => 'Logout',
 
-    'title' => 'Profile',
-    'subtitle' => 'Pleas update your profile!',
+    'update_profile' => [
 
-    'form' => [
-        'name' => 'Name',
-        'button' => 'Save'
+        'title' => 'Profile',
+        'subtitle' => 'Pleas update your profile!',
+
+        'form' => [
+            'name' => 'Name',
+            'button' => 'Save'
+        ],
+    ],
+
+    'profile' => [
+
+        'title' => 'Profile',
+        'subtitle' => 'Your personal data',
+
+        'form' => [
+            'name' => 'Name',
+            'gender' => 'Gender',
+            'birthdate' => 'Birthdate',
+            'age' => 'Age',
+            'button' => 'Submit'
+        ],
+    ],
+
+    'application_start' => [
+        'title' => 'Application',
+        'subtitle' => 'Start your application',
+
+        'button' => 'Now!'
     ],
 
     'application' => [
         'title' => 'Application',
-        'subtitle' => 'Proceed with your Clinical Trial application',
+        'subtitle' => 'Available surveys for your application',
+
         'button' => 'Submit application'
-
     ],
-
 ];

@@ -8,6 +8,7 @@
 <body class="">
 @yield('content')
 
+@include('layouts.partials.footer')
 
 @yield('scripts')
 

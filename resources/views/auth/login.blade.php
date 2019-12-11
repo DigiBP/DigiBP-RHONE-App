@@ -51,29 +51,21 @@
                         </div>
 
                         <div class="flex flex-wrap items-center">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 {{ __('auth/login.form.button') }}
                             </button>
 
                             @if (Route::has('password.request'))
-                                <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
+                                <a class="text-sm text-red-500 hover:text-red-700 whitespace-no-wrap no-underline ml-auto" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             @endif
 
                             <span class="ml-2 mr-2 text-sm text-gray-500 whitespace-no-wrap">|</span>
-                            <a class="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline " href="{{ route('start.index') }}">
+                            <a class="text-sm text-red-500 hover:text-red-700 whitespace-no-wrap no-underline " href="{{ route('registration.index') }}">
                                 {{ __('Start') }}
                             </a>
 
-                            @if (Route::has('register'))
-                                <p class="w-full text-xs text-center text-gray-700 mt-8 -mb-4">
-                                    {{ __("Don't have an account?") }}
-                                    <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route('register') }}">
-                                        {{ __('Register') }}
-                                    </a>
-                                </p>
-                            @endif
                         </div>
                     </form>
 

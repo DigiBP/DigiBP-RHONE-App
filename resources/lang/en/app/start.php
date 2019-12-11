@@ -3,17 +3,11 @@
 return [
 
 
-    'title' => 'Patient registration',
-    'subtitle' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr',
+    'title' => 'PRODUCTNAME',
+    'subtitle' => 'CLINICAL TRIAL MANAGEMENT SYSTEM',
 
-    'form' => [
-        'email' => 'E-Mail',
-        'birthdate' => 'Date of Birth',
-        'birthdate_format' => '(YYYY-MM-DD)',
-        'confirmed_diagnosis' => 'Confirmed diagnosis',
-        'more_information' => 'More Information',
-        'button' => 'Register'
-    ],
+    'paragraph' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.',
 
+    'button' => 'Patient registration'
 
 ];

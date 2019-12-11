@@ -24,7 +24,7 @@ class Patient extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function patient()
+    public function application()
     {
         return $this->hasOne(Application::class);
     }

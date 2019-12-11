@@ -12,6 +12,4 @@ return [
 
     ],
 
-    'applications_enabled' => env('APPLICATIONS_ENABLED', false)
-
 ];
