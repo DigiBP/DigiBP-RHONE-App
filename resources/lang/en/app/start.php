@@ -9,7 +9,7 @@ return [
     'form' => [
         'email' => 'E-Mail',
         'birthdate' => 'Date of Birth',
-        'minimum' => 'Min.',
+        'birthdate_format' => '(YYYY-MM-DD)',
         'confirmed_diagnosis' => 'Confirmed diagnosis',
         'more_information' => 'More Information',
         'button' => 'Register'

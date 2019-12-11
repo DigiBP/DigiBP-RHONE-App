@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Patient;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -13,17 +14,15 @@ class PostRegistrationJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $age;
-    protected $confirmed_diagnosis;
+    protected $patient;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($birth_date, bool $confirmed_diagnosis)
+    public function __construct(Patient $patient)
     {
-        $this->age = Carbon::parse($birth_date)->age;
-        $this->confirmed_diagnosis = $confirmed_diagnosis;
+        $this->patient = $patient;
     }
 
     /**
@@ -40,12 +39,10 @@ class PostRegistrationJob implements ShouldQueue
 
         $response = $client->post($url, [
             'form_params' => [
-                'age' => $this->age,
-                'confirmed_diagnosis' => $this->confirmed_diagnosis
+                'uuid' => $this->patient->uuid, //ca72e506-c006-4cd8-892b-d7f840661ed3
+                'age' => $this->patient->getAge(), //25
+                'confirmed_diagnosis' => $this->patient->confirmed_diagnosis //true/false
             ]
         ]);
-
-        //dd($response)
-
     }
 }

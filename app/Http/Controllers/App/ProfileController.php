@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\UpdateProfileRequest;
+use App\Jobs\DetermineGenderJob;
 
 class ProfileController extends Controller
 {
@@ -22,9 +23,11 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
 
-        $user->update([
+        $user->patient->update([
             'name' => $request->name
         ]);
+
+        DetermineGenderJob::dispatch($user->patient);
 
        return back();
     }

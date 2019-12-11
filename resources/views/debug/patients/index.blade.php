@@ -39,9 +39,10 @@
                             <th class="px-4 py-2">UUID</th>
                             <th class="px-4 py-2">Status</th>
                             <th class="px-4 py-2">Name</th>
+                            <th class="px-4 py-2">Gender</th>
                             <th class="px-4 py-2">E-Mail</th>
                             <th class="px-4 py-2">Password</th>
-                            <th class="px-4 py-2">Birthdate</th>
+                            <th class="px-4 py-2">Birthdate & Age</th>
                             <th class="px-4 py-2"></th>
                         </tr>
                         </thead>
@@ -50,10 +51,11 @@
                             <tr>
                                 <td class="border px-4 py-2">{{ $patient->uuid }}</td>
                                 <td class="border px-4 py-2">{{ $patient->status }}</td>
-                                <td class="border px-4 py-2">{{ $patient->user->name }}</td>
+                                <td class="border px-4 py-2">{{ $patient->name }}</td>
+                                <td class="border px-4 py-2">{{ $patient->gender }}</td>
                                 <td class="border px-4 py-2">{{ $patient->user->email }}</td>
                                 <td class="border px-4 py-2">{{ $patient->user->password_decrypt }}</td>
-                                <td class="border px-4 py-2">{{ $patient->birthdate }}</td>
+                                <td class="border px-4 py-2">{{ $patient->birthdate . ' (' . $patient->getAge() . ')' }}</td>
                                 <td class="border px-4 py-2">
                                     <a class="" href="{{ route('debug.patients.delete', $patient) }}">
                                         <i class="fal fa-minus-circle"></i>
@@ -80,6 +82,7 @@
                                     <td class="border px-4 py-2"></td>
                                     <td class="border px-4 py-2"></td>
                                     <td class="border px-4 py-2"></td>
+                                    <td class="border px-4 py-2"></td>b
                                 </tr>
                             @endif
 

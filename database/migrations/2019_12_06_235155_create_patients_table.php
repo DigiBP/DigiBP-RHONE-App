@@ -21,8 +21,13 @@ class CreatePatientsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('status')->default(\App\Models\Patient::STATUS_UNAPPROVED);
-
+            $table->boolean('confirmed_diagnosis')->default(false);
+            $table->string('name')->nullable();
+            $table->string('gender')->nullable();
             $table->date('birthdate')->nullable();
+
+
+
             $table->timestamps();
         });
     }

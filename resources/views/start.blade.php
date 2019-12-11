@@ -28,8 +28,9 @@
                 </div>
             @endif
 
-            <form class="mt-6" method="POST" action="{{ route('registration.store') }}">
+            <form class="mt-5" method="POST" action="{{ route('registration.store') }}">
                 @csrf
+                @honeypot
 
                 <div class="flex flex-wrap mb-6">
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
@@ -49,12 +50,12 @@
 
                 <div class="flex flex-wrap mb-6">
                     <label for="birthdate" class="block text-gray-700 text-sm font-bold mb-2">
-                        {{ __('app/start.form.birthdate') }}
+                        {{ __('app/start.form.birthdate') }} <span class="text-xs font-light ml-1">{{ __('app/start.form.birthdate_format') }}</span>
                     </label>
 
                     <input id="birthdate" type="text"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('password') border-red-500 @enderror"
-                           name="birthdate" placeholder="{{ __('app/start.form.minimum') . ' ' . $minimum_age }}" required>
+                           name="birthdate" value="{{ old('birthdate') }}" placeholder="{{ $minimum_age }}" required>
 
                     @error('birthdate')
                     <p class="text-red-500 text-xs italic mt-4">

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f84731dd82503a190ae8a216034abd5",
+    "content-hash": "9450c23a99de5207a911b844d1a656fe",
     "packages": [
         {
             "name": "botman/botman",
@@ -846,6 +846,46 @@
             "time": "2019-08-07T09:00:00+00:00"
         },
         {
+            "name": "gender-api/client",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markus-perl/gender-api-client.git",
+                "reference": "46ada807069169c64d9ad76ac94da5d2abbf778e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markus-perl/gender-api-client/zipball/46ada807069169c64d9ad76ac94da5d2abbf778e",
+                "reference": "46ada807069169c64d9ad76ac94da5d2abbf778e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "GenderApi": "src",
+                    "GenderApiTest": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An easy to use API client for Gender-API.com",
+            "homepage": "https://github.com/markus-perl/gender-api-client",
+            "keywords": [
+                "gender api",
+                "gender of names",
+                "genderize"
+            ],
+            "time": "2018-09-20T20:10:10+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.5.0",
             "source": {
@@ -1124,16 +1164,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.6.2",
+            "version": "v6.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "27efba7e13aaf91a87ae9a63db158e943eb71410"
+                "reference": "ba4204f3a8b9672b6116398c165bd9c0c6eac077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/27efba7e13aaf91a87ae9a63db158e943eb71410",
-                "reference": "27efba7e13aaf91a87ae9a63db158e943eb71410",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ba4204f3a8b9672b6116398c165bd9c0c6eac077",
+                "reference": "ba4204f3a8b9672b6116398c165bd9c0c6eac077",
                 "shasum": ""
             },
             "require": {
@@ -1266,7 +1306,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-12-05T13:49:53+00:00"
+            "time": "2019-12-10T16:01:57+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2651,6 +2691,66 @@
                 "spatie"
             ],
             "time": "2019-09-04T12:23:19+00:00"
+        },
+        {
+            "name": "spatie/laravel-honeypot",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-honeypot.git",
+                "reference": "67a89380b26376e821a54278df97850d92c1273f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-honeypot/zipball/67a89380b26376e821a54278df97850d92c1273f",
+                "reference": "67a89380b26376e821a54278df97850d92c1273f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.8.*|^6.0",
+                "illuminate/encryption": "5.8.*|^6.0",
+                "illuminate/http": "5.8.*|^6.0",
+                "illuminate/support": "5.8.*|^6.0",
+                "illuminate/validation": "5.8.*|^6.0",
+                "nesbot/carbon": "^2.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.8.*|^4.0",
+                "spatie/phpunit-snapshot-assertions": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Honeypot\\HoneypotServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Honeypot\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Preventing spam submitted through forms",
+            "homepage": "https://github.com/spatie/laravel-honeypot",
+            "keywords": [
+                "laravel-honeypot",
+                "spatie"
+            ],
+            "time": "2019-09-04T08:28:11+00:00"
         },
         {
             "name": "spatie/macroable",

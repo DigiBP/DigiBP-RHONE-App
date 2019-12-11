@@ -20,7 +20,8 @@ class RegistrationController extends Controller
         switch ($patient->status) {
             case Patient::STATUS_UNAPPROVED:
                 $patient->update([
-                    'status' => Patient::STATUS_APPROVED
+                    'status' => Patient::STATUS_APPROVED,
+                    'confirmed_diagnosis' => true,
                 ]);
                 $user = $patient->user;
                 $user->notify(new ApprovedUserRegistration($user));

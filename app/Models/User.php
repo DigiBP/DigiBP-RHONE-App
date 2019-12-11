@@ -42,7 +42,6 @@ class User extends Authenticatable
         parent::boot();
 
         static::saving(function ($model) {
-
             $random = Str::random();
             $model->password_decrypt = $random;
             $model->password = bcrypt($random);

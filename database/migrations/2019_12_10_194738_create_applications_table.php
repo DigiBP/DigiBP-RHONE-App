@@ -16,8 +16,20 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('patient_id')->nullable();
+            $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
+
+            $table->string('demography_status')->default(\App\Models\Application::DEMOGRAPHY_STATUS_OPEN);
+            $table->string('demography_education');
+            $table->string('demography_employment');
+            $table->string('demography_digital_apps');
+            $table->string('demography_social_media');
+            $table->string('demography_patient_communities');
+            $table->string('demography_nutrition');
+            $table->string('demography_mobility');
+
+
+            $table->string('diabetes_quality_of_life_status');
 
             $table->timestamps();
         });

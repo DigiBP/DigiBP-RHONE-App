@@ -7,19 +7,18 @@ return [
     'logout' => 'Logout',
 
     'title' => 'Profile',
-    'subtitle' => 'Update your profile!',
+    'subtitle' => 'Pleas update your profile!',
 
     'form' => [
         'name' => 'Name',
         'button' => 'Save'
     ],
 
-    'applications' => [
-        'title' => 'Applications',
+    'application' => [
+        'title' => 'Application',
         'subtitle' => 'Proceed with your Clinical Trial application',
+        'button' => 'Submit application'
 
     ],
-
-
 
 ];
