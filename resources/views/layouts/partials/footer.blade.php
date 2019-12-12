@@ -1,8 +1,10 @@
-<div class="md:w-1/2 md:mx-auto mt-24">
+<div class="md:w-1/2 md:mx-auto mt-12">
     <footer class="flex flex-wrap p-6">
         <div class="w-full">
             <div class="py-6">
                 <div class="text-black font-bold text-xs tracking-tight">
+                    <a href="{{ route('start.index') }}" class="mr-2">{{ __('app/layouts.start') }}</a>
+                    <a href="{{ route('registration.index') }}" class="mr-2">{{ __('app/layouts.registration') }}</a>
                     <a href="{{ route('login') }}" class="mr-2">{{ __('app/layouts.authorize') }}</a>
                 </div>
                 <div class="py-1 text-xs tracking-tight font-light">
