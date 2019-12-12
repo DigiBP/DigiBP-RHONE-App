@@ -7,5 +7,6 @@ return [
 
     'please_select' => 'Please select an answer',
 
+    'button' => 'Submit',
 
 ];

@@ -33,13 +33,29 @@
                 @honeypot
 
                 <div class="flex flex-wrap mb-6">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
+                        {{ __('app/registration.form.name') }}
+                    </label>
+
+                    <input id="name" type="text" placeholder="{{ __('app/registration.form.name') }}"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('name') border-red-500 @enderror"
+                           name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                    @error('name')
+                    <p class="text-red-500 text-xs italic mt-4">
+                        {{ $message }}
+                    </p>
+                    @enderror
+                </div>
+
+                <div class="flex flex-wrap mb-6">
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
                         {{ __('app/registration.form.email') }}
                     </label>
 
                     <input id="email" type="email" placeholder="{{ __('app/registration.form.email') }}"
                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('email') border-red-500 @enderror"
-                           name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                           name="email" value="{{ old('email') }}" required autocomplete="email">
 
                     @error('email')
                     <p class="text-red-500 text-xs italic mt-4">
@@ -80,6 +96,8 @@
                         {{ __('app/registration.form.button') }}
                     </button>
                 </div>
+
+
             </form>
         </div>
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\SubmitRegistrationRequest;
+use App\Jobs\DetermineGenderJob;
 use App\Models\User;
 use Carbon\Carbon;
 
@@ -25,10 +26,13 @@ class RegistrationController extends Controller
        ]);
 
        $user->patient()->create([
+        'name' => $request->name,
         'birthdate' => $request->birthdate
        ]);
 
-       flash('Registration successfully submitted');
+        DetermineGenderJob::dispatch($user->patient);
+
+        flash('Registration successfully submitted');
 
        return back();
 

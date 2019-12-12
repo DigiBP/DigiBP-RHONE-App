@@ -13,7 +13,6 @@ Route::middleware(['auth'])->group(function ()
 {
     Route::get('/dashboard', 'App\DashboardController@index')->name('dashboard.index');
 
-    Route::post('/profile/update', 'App\ProfileController@update')->name('profile.update');
     Route::get('/profile/gender/{patient}', 'App\ProfileController@gender')->name('profile.gender');
     Route::get('/application/create/{patient}', 'App\ApplicationController@create')->name('application.create');
 
@@ -24,9 +23,6 @@ Route::middleware(['auth'])->group(function ()
     Route::post('/application/diabetes', 'App\DiabetesController@update')->name('application.diabetes.update');
 
     Route::post('/application/submit', 'App\DemographyController@index')->name('application.submit');
-
-
-
 
 });
 

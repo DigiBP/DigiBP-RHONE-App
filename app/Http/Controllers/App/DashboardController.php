@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
+use App\Models\Survey;
 
 class DashboardController extends Controller
 {
@@ -21,6 +22,8 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
 
-        return view('app.dashboard.index', compact('user'));
+        $surveys = Survey::with('questions','questions.answers')->orderBy('active')->get();
+
+        return view('app.dashboard.index', compact('user','surveys'));
     }
 }

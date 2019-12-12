@@ -18,7 +18,7 @@ class CreateSurveysTable extends Migration
             $table->uuid('uuid');
             $table->boolean('active')->default(false);
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

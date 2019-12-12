@@ -33,4 +33,11 @@ class Patient extends Model
     {
         return Carbon::parse($this->birthdate)->age;
     }
+
+    public function getFirstname()
+    {
+        $array = explode(' ', trim($this->name));
+
+        return $array[0];
+    }
 }

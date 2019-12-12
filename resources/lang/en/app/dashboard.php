@@ -4,18 +4,6 @@ return [
 
     'welcome' => 'Welcome Back',
 
-
-    'update_profile' => [
-
-        'title' => 'Patient Profile',
-        'subtitle' => 'Please continue to complete your registration.',
-
-        'form' => [
-            'name' => 'Name',
-            'button' => 'Save'
-        ],
-    ],
-
     'profile' => [
 
         'title' => 'Patient Profile',
@@ -30,12 +18,6 @@ return [
         ],
     ],
 
-    'application_start' => [
-        'title' => 'Application',
-        'subtitle' => 'Start your application',
-
-        'button' => 'Now!'
-    ],
 
     'application' => [
         'title' => 'Application',

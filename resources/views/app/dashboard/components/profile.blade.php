@@ -25,7 +25,7 @@
                type="text" disabled>
     </div>
 
-    <div class="w-full md:w-1/2 mb-6 md:mb-0">
+    <div class="w-full md:w-1/2 mb-6 md:mb-0 mt-2">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="grid-first-name">
             {{ __('app/dashboard.profile.form.birthdate') }}
         </label>
@@ -33,7 +33,7 @@
                class="disabled shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                type="text" disabled>
     </div>
-    <div class="w-full md:w-1/2 px-3">
+    <div class="w-full md:w-1/2 px-3 mt-2">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="grid-last-name">
             {{ __('app/dashboard.profile.form.age') }}
         </label>

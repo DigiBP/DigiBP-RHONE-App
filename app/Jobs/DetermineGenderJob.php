@@ -42,14 +42,11 @@ class DetermineGenderJob implements ShouldQueue
 
                 $apiClient = new GenderApiClient($gender_api_token);
 
-                $firstname = $this->getFirstname($this->patient->name);
-
-                $lookup = $apiClient->getByFirstNameAndLastNameAndCountry($firstname, 'CH');
+                $lookup = $apiClient->getByFirstNameAndLastNameAndCountry($this->patient->getFirstname(), 'CH');
 
                 if ($lookup->genderFound()) {
                     $gender = $lookup->getGender();
                 }
-
 
             } catch (\Exception $exception) {
 
@@ -62,13 +59,6 @@ class DetermineGenderJob implements ShouldQueue
 
     }
 
-    protected function getFirstname($name)
-    {
-        $name = $this->patient->name;
 
-        $array = explode(' ', trim($name));
-
-        return $array[0];
-    }
 
 }

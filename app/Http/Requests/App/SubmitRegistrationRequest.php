@@ -26,6 +26,7 @@ class SubmitRegistrationRequest extends FormRequest
         //before:today|after:1900-01-01
 
         return [
+            'name' => 'required|string|max:254',
             'email' => 'required|string|email|max:254|unique:users,email',
             'birthdate' => 'required|date_format:Y-m-d',
             'confirmed_diagnosis' => 'required|accepted'
