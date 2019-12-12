@@ -4,9 +4,8 @@
 
     <title>{{ config('app.name') }}</title>
     <meta name="author" content="Sebastian Fix">
-
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f8a4c933e7.js" crossorigin="anonymous"></script>
+
     @yield('styles')
 </head>
 <body class="">
