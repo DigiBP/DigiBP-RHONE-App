@@ -4,7 +4,7 @@ return [
 
 
     'title' => 'Patient registration',
-    'subtitle' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr',
+    'subtitle' => 'Welcome to Patient Centric Trials in Diabetes (PaCT- D), you can start the registration steps below:',
 
     'form' => [
         'email' => 'E-Mail',

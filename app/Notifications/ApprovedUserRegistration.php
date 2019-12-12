@@ -47,11 +47,11 @@ class ApprovedUserRegistration extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->subject('DigiBP Rhône - Your credentials')
                     ->greeting('Dear Patient')
-                    ->line('You\'ve successfully registered for The Clinical Trial. Find your credentials attached:')
+                    ->line('You`ve successfully registered for the Patient Centric Diabetes Trials. Please find your log in details below:')
                     ->line('Username: ' . $this->user->email)
                     ->line('Password: ' . $this->user->password_decrypt)
                     ->action('Authorize', route('dashboard.index'))
-                    ->line('Thank you for using our application!');
+                    ->salutation('Best regards');
     }
 
     /**

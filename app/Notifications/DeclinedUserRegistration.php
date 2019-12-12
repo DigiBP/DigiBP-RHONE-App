@@ -46,9 +46,10 @@ class DeclinedUserRegistration extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->subject('DigiBP Rhône - Declined registration')
                     ->greeting('Dear Patient')
-                    ->line('Unfortunately you\'re registration could not be processed because of the following reason:')
-                    ->line($this->reason)
-                    ->line('Thank you for using our application!');
+                    ->line('Based on our initial assessment, your profile does not meet the strict requirements of clinical trial studies in Diabetes.  If you would like to understand our decision better, please do not hesitate to contact us.')
+                    ->line('If you are worried about your diabetes care, we recommend that you contact your health care provider as soon as possible.')
+                    ->salutation('Best regards');
+
     }
 
     /**

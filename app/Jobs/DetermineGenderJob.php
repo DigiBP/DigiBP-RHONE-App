@@ -15,6 +15,7 @@ class DetermineGenderJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $patient;
+
     /**
      * Create a new job instance.
      *
@@ -36,16 +37,19 @@ class DetermineGenderJob implements ShouldQueue
 
         $gender_api_token = config('services.gender_api_token');
 
-        if($gender_api_token)
-        {
+        if ($gender_api_token) {
             try {
+
                 $apiClient = new GenderApiClient($gender_api_token);
 
-                $lookup = $apiClient->getByFirstNameAndLastNameAndCountry($this->patient->name, 'CH');
-                if ($lookup->genderFound())
-                {
+                $firstname = $this->getFirstname($this->patient->name);
+
+                $lookup = $apiClient->getByFirstNameAndLastNameAndCountry($firstname, 'CH');
+
+                if ($lookup->genderFound()) {
                     $gender = $lookup->getGender();
                 }
+
 
             } catch (\Exception $exception) {
 
@@ -53,8 +57,18 @@ class DetermineGenderJob implements ShouldQueue
         }
 
         $this->patient->update([
-            'gender' =>  $gender
+            'gender' => $gender
         ]);
 
     }
+
+    protected function getFirstname($name)
+    {
+        $name = $this->patient->name;
+
+        $array = explode(' ', trim($name));
+
+        return $array[0];
+    }
+
 }

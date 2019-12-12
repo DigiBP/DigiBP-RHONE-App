@@ -9,8 +9,12 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(DiabetisSurveySeeder::class);
+        $this->call(DemographySurveySeeder::class);
+        $this->call(MedicalSurveySeeder::class);
+        $this->call(SDSCASurveySeeder::class);
     }
 }

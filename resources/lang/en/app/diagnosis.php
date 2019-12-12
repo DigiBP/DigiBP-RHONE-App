@@ -4,7 +4,7 @@ return [
     'title' => 'Diagnosis',
     'subtitle' => 'What does it mean?',
 
-    'paragraph' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+    'paragraph' => 'Its important for study requirements that your Diabetes (Type 1 or 2) will need to have been confirmed by your health care practitioner, which can include a General Practitioner, Specialist and/or Nurse.  Diagnosis can be confirmed by blood glucose monitoring (amount of sugar in your blood) and/or the amount of sugar in your red blood cells (Hemoglobin), which is often labelled as HbA1c.  At a later stage, we will ask you to provide record of these values.  If you don’t remember these values or measured longer than 3 months ago, it is advisable to have them done again.',
 
     'button' => 'Patient registration',
 ];
