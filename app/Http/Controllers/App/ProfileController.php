@@ -24,8 +24,6 @@ class ProfileController extends Controller
 
         DetermineGenderJob::dispatch($user->patient);
 
-        sleep(1);
-
        return back();
     }
 

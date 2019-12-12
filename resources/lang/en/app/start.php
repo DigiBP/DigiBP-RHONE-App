@@ -2,7 +2,7 @@
 
 return [
     'title' => 'PRODUCTNAME',
-    'subtitle' => 'CLINICAL TRIAL APPLICATION SYSTEM',
+    'subtitle' => 'Diabetis Trials Patient Recruiter',
 
     'paragraph' => 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.',
 
