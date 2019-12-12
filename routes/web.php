@@ -7,8 +7,6 @@ Route::get('/', 'App\StartController@index')->name('start.index');
 Route::get('/registration', 'App\RegistrationController@index')->name('registration.index');
 Route::post('/registration', 'App\RegistrationController@store')->name('registration.store')->middleware(\Spatie\Honeypot\ProtectAgainstSpam::class);
 
-Route::get('/diagnosis', 'App\DiagnosisController@index')->name('diagnosis.index');
-
 Route::middleware(['auth'])->group(function ()
 {
     Route::get('/dashboard', 'App\DashboardController@index')->name('dashboard.index');

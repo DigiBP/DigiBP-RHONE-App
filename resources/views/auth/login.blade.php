@@ -62,7 +62,7 @@
                             @endif
 
                             <span class="ml-2 mr-2 text-sm text-gray-500 whitespace-no-wrap">|</span>
-                            <a class="text-sm text-red-500 hover:text-red-700 whitespace-no-wrap no-underline " href="{{ route('registration.index') }}">
+                            <a class="text-sm text-red-500 hover:text-red-700 whitespace-no-wrap no-underline " href="{{ route('start.index') }}">
                                 {{ __('Start') }}
                             </a>
 

@@ -32,7 +32,7 @@
                 @csrf
                 @honeypot
 
-                <div class="flex flex-wrap mb-6">
+                <div class="flex flex-wrap mb-4">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
                         {{ __('app/registration.form.name') }}
                     </label>
@@ -48,7 +48,7 @@
                     @enderror
                 </div>
 
-                <div class="flex flex-wrap mb-6">
+                <div class="flex flex-wrap mb-4">
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">
                         {{ __('app/registration.form.email') }}
                     </label>
@@ -64,7 +64,7 @@
                     @enderror
                 </div>
 
-                <div class="flex flex-wrap mb-6">
+                <div class="flex flex-wrap mb-4">
                     <label for="birthdate" class="block text-gray-700 text-sm font-bold mb-2">
                         {{ __('app/registration.form.birthdate') }} <span class="text-xs font-light ml-1">{{ __('app/registration.form.birthdate_format') }}</span>
                     </label>
@@ -80,14 +80,23 @@
                     @enderror
                 </div>
 
-                <div class="flex mb-6">
+                <div class="flex flex-wrap mb-2">
+                    <label for="birthdate" class="block text-gray-700 text-sm font-bold mb-2">
+                        {{ __('app/registration.diagnosis.title') }}
+                    </label>
+                    <p class="text-xs leading-normal mb-2">
+                        {{ __('app/registration.diagnosis.paragraph') }}
+                    </p>
+
+                </div>
+
+                <div class="flex mb-4">
                     <input class="mt-1" type="checkbox" name="confirmed_diagnosis" id="confirmed_diagnosis"
                            {{ old('confirmed_diagnosis') ? 'checked' : '' }} required>
 
                     <label class="text-sm text-gray-700 ml-2" for="confirmed_diagnosis">
                         {{ __('app/registration.form.confirmed_diagnosis') }}
                     </label>
-                    <a target="_blank" class="underline text-sm text-blue-700 ml-1" href="{{ route('diagnosis.index') }}"><span class="text-xs">{{ __('app/registration.form.more_information') }}</span></a>
                 </div>
 
                 <div class="flex flex-wrap items-center">
