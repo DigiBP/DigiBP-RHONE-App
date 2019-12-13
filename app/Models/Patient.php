@@ -24,14 +24,21 @@ class Patient extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function application()
+    public function surveys()
     {
-        return $this->hasOne(Application::class);
+        return $this->belongsToMany(Survey::class)->withPivot('status')->withTimestamps();
     }
 
     public function getAge()
     {
         return Carbon::parse($this->birthdate)->age;
+    }
+
+    public function getSurveyStatus(Survey $survey)
+    {
+        $count = $this->surveys()->where('survey_id', $survey->id)->count() ;
+
+
     }
 
     public function getFirstname()

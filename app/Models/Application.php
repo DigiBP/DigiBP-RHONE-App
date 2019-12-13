@@ -17,6 +17,7 @@ class Application extends Model
     const DIABETES_QUALITY_OF_LIFE_STATUS_DECLINED = 'declined';
 
     protected $fillable = [
+        'survey_id',
         'patient_id',
         'demography_status',
         'demography_education',
@@ -33,5 +34,10 @@ class Application extends Model
     public function patient()
     {
         return $this->belongsTo(Patient::class);
+    }
+
+    public function survey()
+    {
+        return $this->belongsTo(Survey::class);
     }
 }

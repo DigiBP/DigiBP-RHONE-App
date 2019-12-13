@@ -12,7 +12,7 @@ class SDSCASurveySeeder extends Seeder
     public function run()
     {
         $survey = \App\Models\Survey::create([
-            'active' => false,
+            'availability' => false,
             'title' => 'SDSCA Measure',
             'description' => 'The SDSCA survey will collect information on how you manage yourself living with diabetes and will include questions about your diet, exercise, caring for your feet and life style.  ',
         ]);

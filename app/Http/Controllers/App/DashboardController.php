@@ -22,7 +22,7 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
 
-        $surveys = Survey::with('questions','questions.answers')->orderBy('active')->get();
+        $surveys = Survey::with('questions','questions.answers')->orderBy('active','desc')->get();
 
         return view('app.dashboard.index', compact('user','surveys'));
     }

@@ -1,15 +1,24 @@
 <?php
 
 return [
-    'version' => '11.12.2019',
+    'version' => '13.12.2019',
 
     'camunda' => [
-
-        'domain' => env('CAMUNDA_DOMAIN','https://digibp-rhone.herokuapp.com'),
-
+        'domain' => 'https://digibp-rhone.herokuapp.com',
         'post_registration' => '/app/registration',
         'post_application' => '/app/application'
-
     ],
+
+    'documentation' => [
+
+        'camunda' => 'https://digibp-rhone.herokuapp.com',
+        'postman' => 'https://documenter.getpostman.com/view/1711474/SWE6cK5X',
+        'github' => [
+            'camunda' => 'https://github.com/DigiBP/DigiBP-RHONE',
+            'app' => 'https://github.com/DigiBP/DigiBP-RHONE-App'
+        ]
+    ],
+
+
 
 ];

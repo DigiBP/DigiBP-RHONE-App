@@ -3,6 +3,7 @@
 Auth::routes(['login' => true, 'register' => false, 'reset' => true, 'verify' => false]);
 
 Route::get('/', 'App\StartController@index')->name('start.index');
+Route::get('/documentation', 'App\DocumentationController@index')->name('documentation.index');
 
 Route::get('/registration', 'App\RegistrationController@index')->name('registration.index');
 Route::post('/registration', 'App\RegistrationController@store')->name('registration.store')->middleware(\Spatie\Honeypot\ProtectAgainstSpam::class);

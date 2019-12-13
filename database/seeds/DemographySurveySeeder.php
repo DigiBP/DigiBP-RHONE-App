@@ -12,7 +12,7 @@ class DemographySurveySeeder extends Seeder
     public function run()
     {
         $survey = \App\Models\Survey::create([
-            'active' => true,
+            'availability' => true,
             'title' => 'Demographics',
             'description' => 'Demographics survey collects information about you.',
         ]);

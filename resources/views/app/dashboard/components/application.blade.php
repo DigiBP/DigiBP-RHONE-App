@@ -6,7 +6,7 @@
         @foreach($surveys as $survey)
             <div class="bg-gray-100 rounded overflow-hidden shadow-lg mb-6">
                 <div class="px-6 py-4">
-                    <div class="font-light text-sm mb-2">Status: Survey currently not available</div>
+                    <div class="font-light text-sm mb-2">{{ $survey->availability() }}</div>
                     <div class="font-bold text-xl mb-2">{{ $survey->title }}</div>
                     <p class="text-gray-700 text-base">
                         {{ $survey->description }}

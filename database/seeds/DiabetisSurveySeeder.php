@@ -12,7 +12,7 @@ class DiabetisSurveySeeder extends Seeder
     public function run()
     {
         $survey = \App\Models\Survey::create([
-            'active' => true,
+            'availability' => true,
             'title' => 'Diabetes Quality of Life',
             'description' => 'Diabetes Quality of Life survey captures your satisfaction, impact and worry related to living with the diagnosis of diabetes (Type 1 or 2).',
         ]);
