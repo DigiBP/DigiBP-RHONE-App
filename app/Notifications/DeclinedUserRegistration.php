@@ -13,7 +13,6 @@ class DeclinedUserRegistration extends Notification implements ShouldQueue
     use Queueable;
 
     public $patient;
-    public $reason;
 
     /**
      * Create a new notification instance.
@@ -21,10 +20,9 @@ class DeclinedUserRegistration extends Notification implements ShouldQueue
      * @return void
      */
 
-    public function __construct(Patient $patient, $reason)
+    public function __construct(Patient $patient)
     {
         $this->patient = $patient;
-        $this->reason = $reason;
     }
 
     /**

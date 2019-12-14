@@ -19,6 +19,11 @@ class Patient extends Model
     const GENDER_FEMALE = 'female';
     const GENDER_DIVERSE = 'diverse';
 
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -37,8 +42,6 @@ class Patient extends Model
     public function getSurveyStatus(Survey $survey)
     {
         $count = $this->surveys()->where('survey_id', $survey->id)->count() ;
-
-
     }
 
     public function getFirstname()

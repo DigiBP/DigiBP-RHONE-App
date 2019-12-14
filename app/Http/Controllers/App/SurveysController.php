@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
-use App\Models\Patient;
+use App\Models\Survey;
 
-class ApplicationController extends Controller
+class SurveysController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,8 +18,8 @@ class ApplicationController extends Controller
         $this->middleware('auth');
     }
 
-    public function submit(Patient $patient)
+    public function show(Survey $survey)
     {
-        return back();
+        return view('app.surveys.show', compact('survey'));
     }
 }

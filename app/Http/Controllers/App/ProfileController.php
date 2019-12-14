@@ -12,9 +12,9 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function gender(Patient $patient)
+    public function update()
     {
-        $gender = Patient::GENDER_DIVERSE;
+        $patient = auth()->user()->patient;
 
         switch ($patient->gender) {
             case Patient::GENDER_MALE:
@@ -22,6 +22,9 @@ class ProfileController extends Controller
                 break;
             case Patient::GENDER_FEMALE:
                 $gender = Patient::GENDER_MALE;
+                break;
+            default;
+                $gender = $this->randomGender();
         }
 
         $patient->update([
@@ -29,5 +32,18 @@ class ProfileController extends Controller
         ]);
 
         return back();
+    }
+
+    protected function randomGender()
+    {
+        $available_genders = [
+            Patient::GENDER_MALE,
+            Patient::GENDER_FEMALE
+        ];
+
+        $randomized_index = array_rand($available_genders);
+
+        return $available_genders[$randomized_index];
+
     }
 }

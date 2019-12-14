@@ -4,13 +4,20 @@
 
     @if(!empty($surveys) && $surveys->count())
         @foreach($surveys as $survey)
-            <div class="bg-gray-100 rounded overflow-hidden shadow-lg mb-6">
+            <div class="{{ $survey->availabilityBackground() }} rounded overflow-hidden shadow-lg mb-6">
                 <div class="px-6 py-4">
-                    <div class="font-light text-sm mb-2">{{ $survey->availability() }}</div>
+                    <div class="text-xs mb-1">{{ $survey->availability() }}</div>
                     <div class="font-bold text-xl mb-2">{{ $survey->title }}</div>
-                    <p class="text-gray-700 text-base">
+                    <p class="text-gray-700 text-base mb-2">
                         {{ $survey->description }}
                     </p>
+
+                    @if($survey->availability)
+                        <a href="{{ route('surveys.show', $survey) }}" class="bg-blue-500 hover:bg-gray-700 text-xs text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            {{ __('app/dashboard.application.survey.button') }}
+                        </a>
+                    @endif
+
                 </div>
             </div>
         @endforeach

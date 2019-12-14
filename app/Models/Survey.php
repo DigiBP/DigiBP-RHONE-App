@@ -23,6 +23,13 @@ class Survey extends Model
         'description'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
+
+    protected $with = ['questions','questions.answers'];
+
     public function questions()
     {
         return $this->hasMany(Question::class);
@@ -36,6 +43,11 @@ class Survey extends Model
     public function availability()
     {
         return $this->availability ? __('app/models/survey.availability.true') : __('app/models/survey.availability.false');
+    }
+
+    public function availabilityBackground()
+    {
+        return $this->availability ? 'bg-blue-100' : 'bg-gray-100 cursor-not-allowed';
     }
 
 }

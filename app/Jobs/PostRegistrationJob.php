@@ -41,8 +41,9 @@ class PostRegistrationJob implements ShouldQueue
             'form_params' => [
                 'uuid' => $this->patient->uuid, //ca72e506-c006-4cd8-892b-d7f840661ed3
                 'age' => $this->patient->getAge(), //25
-                'confirmed_diagnosis' => $this->patient->confirmed_diagnosis //true/false
             ]
         ]);
+
+
     }
 }

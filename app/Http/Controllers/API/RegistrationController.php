@@ -38,8 +38,10 @@ class RegistrationController extends Controller
 
         switch ($patient->status) {
             case Patient::STATUS_UNAPPROVED:
+
                 $user = $patient->user;
-                $user->notify(new DeclinedUserRegistration($patient, $request->reason));
+
+                $user->notify(new DeclinedUserRegistration($patient));
 
                 DeleteUserJob::dispatch($user);
 
