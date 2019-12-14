@@ -20,7 +20,8 @@ class Survey extends Model
         'attempts',
         'camunda_identifier',
         'title',
-        'description'
+        'description',
+        'explanation'
     ];
 
     public function getRouteKeyName()

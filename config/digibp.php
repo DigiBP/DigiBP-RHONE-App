@@ -1,12 +1,10 @@
 <?php
 
 return [
-    'version' => '13.12.2019',
+    'version' => '15.12.2019',
 
     'camunda' => [
-        'domain' => 'https://digibp-rhone.herokuapp.com',
-        'post_registration' => '/app/registration',
-        'post_application' => '/app/application'
+        'registration_post' => env('CAMUNDA_REGISTRATION_POST'),
     ],
 
     'documentation' => [

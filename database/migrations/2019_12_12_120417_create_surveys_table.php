@@ -21,6 +21,7 @@ class CreateSurveysTable extends Migration
             $table->integer('max_attempts')->nullable();
             $table->string('title');
             $table->longText('description')->nullable();
+            $table->longText('explanation')->nullable();
             $table->timestamps();
         });
 

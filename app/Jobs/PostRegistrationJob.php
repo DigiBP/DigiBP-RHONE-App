@@ -8,7 +8,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Carbon;
 
 class PostRegistrationJob implements ShouldQueue
 {
@@ -35,15 +34,17 @@ class PostRegistrationJob implements ShouldQueue
     {
         $client = new \GuzzleHttp\Client();
 
-        $url = config('digibp.camunda.domain') . config('digibp.camunda.post_registration');
+        $url = config('digibp.camunda.registration_post');
 
         $response = $client->post($url, [
+            'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json'],
             'form_params' => [
-                'uuid' => $this->patient->uuid, //ca72e506-c006-4cd8-892b-d7f840661ed3
-                'age' => $this->patient->getAge(), //25
+                //ca72e506-c006-4cd8-892b-d7f840661ed3
+                'uuid' => $this->patient->uuid,
+                //25
+                'age' => $this->patient->getAge(),
             ]
         ]);
-
 
     }
 }

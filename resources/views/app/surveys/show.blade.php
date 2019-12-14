@@ -8,6 +8,12 @@
             <div class="font-bold text-xl">{{ $survey->title }}</div>
             <div class="font-light text-lg mb-2">{{ $survey->description }}</div>
 
+            @if($survey->explanation)
+                <p class="text-gray-700 text-base mb-2">
+                    {{ $survey->explanation }}
+                </p>
+            @endif
+
             <form class="mt-6" method="POST" action="">
                 @csrf
 
