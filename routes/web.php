@@ -15,6 +15,7 @@ Route::middleware(['auth'])->group(function ()
     Route::get('/profile/update', 'App\ProfileController@update')->name('profile.update');
 
     Route::get('/application/surveys/{survey}', 'App\SurveysController@show')->name('surveys.show');
+    Route::post('/application/surveys/{survey}', 'App\SurveysController@store')->name('surveys.store');
 
     Route::post('/application/submit', 'App\ApplicationController@index')->name('application.submit');
 
