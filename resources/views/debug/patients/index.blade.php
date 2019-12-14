@@ -58,7 +58,7 @@
                                 <td class="border px-4 py-2">{{ $patient->birthdate . ' (' . $patient->getAge() . ')' }}</td>
                                 <td class="border px-4 py-2">
                                     <a class="" href="{{ route('debug.patients.delete', $patient) }}">
-                                        <i class="fal fa-minus-circle"></i>
+                                       remove
                                     </a>
                                 </td>
                             </tr>
@@ -82,7 +82,7 @@
                                     <td class="border px-4 py-2"></td>
                                     <td class="border px-4 py-2"></td>
                                     <td class="border px-4 py-2"></td>
-                                    <td class="border px-4 py-2"></td>b
+                                    <td class="border px-4 py-2"></td>
                                 </tr>
                             @endif
 
