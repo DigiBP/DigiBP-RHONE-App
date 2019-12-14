@@ -56,7 +56,7 @@
                                 <td class="border px-4 py-2">{{ $patient->user->password_decrypt }}</td>
                                 <td class="border px-4 py-2">{{ $patient->birthdate . ' (' . $patient->getAge() . ')' }}</td>
                                 <td class="border px-4 py-2">
-                                    <a class="" href="{{ route('debug.patients.delete', $patient) }}">
+                                    <a class="text-red-700" href="{{ route('debug.patients.delete', $patient) }}">
                                        remove
                                     </a>
                                 </td>
