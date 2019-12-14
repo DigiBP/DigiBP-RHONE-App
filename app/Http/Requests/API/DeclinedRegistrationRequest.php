@@ -25,8 +25,7 @@ class DeclinedRegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'uuid' => 'required|string|exists:patients,uuid',
-            'reason' => 'required|string|max:512',
+            'uuid' => 'required|string|exists:patients,uuid'
         ];
     }
 }

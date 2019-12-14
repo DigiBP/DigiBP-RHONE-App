@@ -9,52 +9,38 @@ class PatientsController extends Controller
 {
     public function index()
     {
-        $patients = Patient::with('user')->orderBy('created_at','desc')->get();
+        $patients = Patient::with('user')->orderBy('created_at', 'desc')->get();
 
-        return view('debug.patients.index',compact('patients'));
+        return view('debug.patients.index', compact('patients'));
     }
 
     public function approve(Patient $patient)
     {
-        try {
+        $client = new \GuzzleHttp\Client();
 
-            $client = new \GuzzleHttp\Client();
+        $url = route('api.registration.approve');
 
-            $url = route('api.registraiton.approve');
-
-            $response = $client->post($url, [
-                'form_params' => [
-                    'uuid' => $patient->uuid
-                ]
-            ]);
-        }
-        catch (\Exception $exception)
-        {
-        }
+        $response = $client->post($url, [
+            'form_params' => [
+                'uuid' => $patient->uuid
+            ]
+        ]);
 
         return back();
     }
 
     public function decline(Patient $patient)
     {
-        try {
 
-            $client = new \GuzzleHttp\Client();
+        $client = new \GuzzleHttp\Client();
 
-            $url = route('api.registraiton.decline');
+        $url = route('api.registration.decline');
 
-            $response = $client->post($url, [
-                'form_params' => [
-                    'uuid' => $patient->uuid,
-                    'reason' => 'Someone has manually declined your request!'
-                ]
-            ]);
-
-            sleep(3);
-        }
-        catch (\Exception $exception)
-        {
-        }
+        $response = $client->post($url, [
+            'form_params' => [
+                'uuid' => $patient->uuid
+            ]
+        ]);
 
         return back();
 
