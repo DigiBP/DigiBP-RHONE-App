@@ -9,7 +9,8 @@
             <div class="font-light text-lg mb-2">{{ $survey->description }}</div>
 
             @if($survey->explanation)
-                <p class="text-gray-700 text-base mb-2">
+                <div class="font-bold text-sm">Expanation</div>
+                <p class="text-gray-700 text-base text-sm mb-2">
                     {{ $survey->explanation }}
                 </p>
             @endif
