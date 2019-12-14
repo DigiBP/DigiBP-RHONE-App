@@ -5,6 +5,7 @@ namespace App\Http\Controllers\App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\App\SubmitRegistrationRequest;
 use App\Jobs\DetermineGenderJob;
+use App\Jobs\CamundaRegistrationPost;
 use App\Models\User;
 use Carbon\Carbon;
 
@@ -25,12 +26,14 @@ class RegistrationController extends Controller
           'email'  => $request->email,
        ]);
 
-       $user->patient()->create([
+       $patient = $user->patient()->create([
         'name' => $request->name,
         'birthdate' => $request->birthdate
        ]);
 
         DetermineGenderJob::dispatch($user->patient);
+
+        CamundaRegistrationPost::dispatch($patient);
 
         flash('Registration successfully submitted');
 

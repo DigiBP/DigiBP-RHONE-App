@@ -3,13 +3,15 @@
 namespace App\Jobs;
 
 use App\Models\Patient;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
-class PostRegistrationJob implements ShouldQueue
+class CamundaRegistrationPost implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -36,15 +38,14 @@ class PostRegistrationJob implements ShouldQueue
 
         $url = config('digibp.camunda.registration_post');
 
-        $response = $client->post($url, [
-            'headers' => ['Accept' => 'application/json', 'Content-Type' => 'application/json'],
-            'form_params' => [
-                //ca72e506-c006-4cd8-892b-d7f840661ed3
+       $response = $client->post($url,[
+            'headers' => [
+                'Content-Type' => 'application/json'
+            ],
+          RequestOptions::JSON => [
                 'uuid' => $this->patient->uuid,
-                //25
                 'age' => $this->patient->getAge(),
             ]
         ]);
-
     }
 }
