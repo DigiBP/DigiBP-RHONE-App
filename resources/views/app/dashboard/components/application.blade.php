@@ -14,8 +14,8 @@
                         {{ $survey->description }}
                     </p>
 
-                    <p class="text-gray-500 text-base text-xs mb-2">
-                        UUID: {{ $survey->uuid }}
+                    <p class="text-gray-100 text-base text-xs mb-2">
+                        {{ $survey->uuid }}
                     </p>
 
                     @if($survey->availability)
@@ -34,6 +34,10 @@
                                     {{ __('app/dashboard.application.survey.button_retake') }}
                                 </a>
 
+                            @else
+                                <a href="{{ route('surveys.show', $survey) }}" class="bg-blue-500 hover:bg-blue-700 text-xs text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    {{ __('app/dashboard.application.survey.button_take') }}
+                                </a>
                             @endif
 
 

@@ -53,86 +53,65 @@
 
                     @if($survey->availability)
 
-                        @if(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->exists())
-
-                            @if(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_OPEN)
-
-                                <button type="submit"
-                                        class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    {{ __('app/demography.button') }}
-                                </button>
-
-                                <a title="Wizzerd" onclick="positive_autoFill();"
-                                   class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    +
-                                </a>
-
-                                <a title="Wizzerd" onclick="negative_autoFill();"
-                                   class="ml-1 text-xs bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    -
-                                </a>
-
-                            @elseif(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_RETAKE)
-
-                                <button type="submit"
-                                        class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    {{ __('app/demography.button') }}
-                                </button>
-
-                                <a title="Wizzerd" onclick="positive_autoFill();"
-                                   class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    +
-                                </a>
-
-                                <a title="Wizzerd" onclick="negative_autoFill();"
-                                   class="ml-1 text-xs bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    -
-                                </a>
-
-                            @endif
-
-                        @else
                             <button type="submit"
                                     class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 {{ __('app/demography.button') }}
                             </button>
 
-                            <a title="Wizzerd" onclick="positive_autoFill();"
-                               class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                +
-                            </a>
+                            @if($survey->id === 1)
 
-                            <a title="Wizzerd" onclick="negative_autoFill();"
-                               class="ml-1 text-xs bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                -
-                            </a>
-                        @endif
+                                <a title="Wizzerd" onclick="below_forty();"
+                                   class="ml-1 text-xs bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    < 40
+                                </a>
+
+                                <a title="Wizzerd" onclick="between_forty_and_fiftysix();"
+                                   class="ml-1 text-xs bg-orange-500 hover:bg-orange-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    [40..56]
+                                </a>
+
+                                <a title="Wizzerd" onclick="above_fifitysix();"
+                                   class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    >56
+                                </a>
+                            @else
+                                <a title="Wizzerd" onclick="below_forty();"
+                                   class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    magic
+                                </a>
+                            @endif
 
                     @endif
 
                     <script type="text/javascript">
 
-                        function negative_autoFill() {
+                        function below_forty() {
 
                             var types = {!! $survey->questions->pluck('type') !!}
 
                             types.forEach(element =>
-                                document.getElementById(element).value = getRandomInt(1)
+                                document.getElementById(element).value = 1
                             );
                         }
 
-                        function positive_autoFill() {
+                        function between_forty_and_fiftysix() {
 
                             var types = {!! $survey->questions->pluck('type') !!}
 
                             types.forEach(element =>
-                                document.getElementById(element).value = getRandomInt(4)
+                                document.getElementById(element).value = 3
                             );
                         }
 
-                        function getRandomInt(max) {
-                            return Math.floor(Math.random() * Math.floor(max) + 1);
+                        function above_fifitysix() {
+
+                            var types = {!! $survey->questions->pluck('type') !!}
+
+                            types.forEach(element =>
+                                document.getElementById(element).value = 5
+                            );
                         }
+
 
                     </script>
 
