@@ -13,6 +13,7 @@ class DiabetisSurveySeeder extends Seeder
     {
         $survey = \App\Models\Survey::create([
             'availability' => true,
+            'camunda_identifier' => 'survey_001',
             'title' => 'Diabetes Quality of Life',
             'description' => 'Diabetes Quality of Life survey captures your satisfaction, impact and worry related to living with the diagnosis of diabetes (Type 1 or 2).',
             'explanation' => 'Please rate your answers from 1 (least impact on you) to 5 (highest impact on you). Please choose only one response for each question.',

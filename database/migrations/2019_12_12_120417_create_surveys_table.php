@@ -27,11 +27,11 @@ class CreateSurveysTable extends Migration
 
         Schema::create('patient_survey', function (Blueprint $table) {
             $table->unsignedBigInteger('patient_id')->nullable();
-            $table->string('status')->default(\App\Models\Survey::STATUS_OPEN);
-            $table->integer('attempts')->default(0);
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->unsignedBigInteger('survey_id')->nullable();
             $table->foreign('survey_id')->references('id')->on('surveys')->onDelete('cascade');
+            $table->string('status')->default(\App\Models\Survey::STATUS_OPEN);
+            $table->integer('attempts')->default(0);
             $table->timestamps();
         });
 

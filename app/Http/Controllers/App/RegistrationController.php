@@ -33,7 +33,10 @@ class RegistrationController extends Controller
 
         DetermineGenderJob::dispatch($user->patient);
 
-        CamundaRegistrationPost::dispatch($patient);
+        if(app()->environment('production'))
+        {
+            CamundaRegistrationPost::dispatch($patient);
+        }
 
         flash('Registration successfully submitted');
 

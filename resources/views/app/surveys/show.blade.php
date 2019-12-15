@@ -23,12 +23,14 @@
                             {{ $question->text }}
                         </label>
 
-                        <select id="{{ $question->type }}" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                name="{{ $question->type }}"  required>
+                        <select id="{{ $question->type }}"
+                                class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                name="{{ $question->type }}" required>
                             <option value="" selected disabled>{{ __('app/demography.please_select') }}</option>
 
                             @foreach($question->answers as $answer)
-                                <option @if(old($question->type) === $answer->value) selected @endif value="{{ $answer->value }}">{{ $answer->text }}</option>
+                                <option @if(old($question->type) === $answer->value) selected
+                                        @endif value="{{ $answer->value }}">{{ $answer->text }}</option>
                             @endforeach
 
                         </select>
@@ -44,33 +46,97 @@
 
 
                 <div class="flex flex-wrap items-center">
-                    <a href="{{ route('dashboard.index') }}" class="mr-1 text-xs bg-gray-500 hover:bg-gray-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    <a href="{{ route('dashboard.index') }}"
+                       class="mr-1 text-xs bg-gray-500 hover:bg-gray-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Back
                     </a>
 
                     @if($survey->availability)
-                        <button type="submit" class="ml-1 mr-1 bg-green-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            {{ __('app/demography.button') }}
-                        </button>
 
-                        <a title="Wizzerd" onclick="autoFill();" class="ml-1 bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                            <i class="fal fa-magic"></i>
-                        </a>
+                        @if(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->exists())
 
-                        <script type="text/javascript">
-                            function autoFill() {
+                            @if(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_OPEN)
 
-                                var types = {{ $survey->questions->pluck('type')->toArray() }}
+                                <button type="submit"
+                                        class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    {{ __('app/demography.button') }}
+                                </button>
 
-                                types.forEach(element =>
-                                    document.getElementById(element).value = Math.floor(Math.random() * 6) + 1
-                                );
-                            }
-                        </script>
+                                <a title="Wizzerd" onclick="positive_autoFill();"
+                                   class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    +
+                                </a>
+
+                                <a title="Wizzerd" onclick="negative_autoFill();"
+                                   class="ml-1 text-xs bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    -
+                                </a>
+
+                            @elseif(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_DECLINED)
+
+                                <button type="submit"
+                                        class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    {{ __('app/demography.button') }}
+                                </button>
+
+                                <a title="Wizzerd" onclick="positive_autoFill();"
+                                   class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    +
+                                </a>
+
+                                <a title="Wizzerd" onclick="negative_autoFill();"
+                                   class="ml-1 text-xs bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    -
+                                </a>
+
+                            @endif
+
+                        @else
+                            <button type="submit"
+                                    class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                {{ __('app/demography.button') }}
+                            </button>
+
+                            <a title="Wizzerd" onclick="positive_autoFill();"
+                               class="ml-1 text-xs bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                +
+                            </a>
+
+                            <a title="Wizzerd" onclick="negative_autoFill();"
+                               class="ml-1 text-xs bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                -
+                            </a>
+                        @endif
+
                     @endif
 
-                </div>
+                    <script type="text/javascript">
 
+                        function negative_autoFill() {
+
+                            var types = {!! $survey->questions->pluck('type') !!}
+
+                            types.forEach(element =>
+                                document.getElementById(element).value = getRandomInt(1)
+                            );
+                        }
+
+                        function positive_autoFill() {
+
+                            var types = {!! $survey->questions->pluck('type') !!}
+
+                            types.forEach(element =>
+                                document.getElementById(element).value = getRandomInt(4)
+                            );
+                        }
+
+                        function getRandomInt(max) {
+                            return Math.floor(Math.random() * Math.floor(max) + 1);
+                        }
+
+                    </script>
+
+                </div>
 
             </form>
 

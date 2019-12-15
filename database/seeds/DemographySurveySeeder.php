@@ -13,6 +13,7 @@ class DemographySurveySeeder extends Seeder
     {
         $survey = \App\Models\Survey::create([
             'availability' => true,
+            'camunda_identifier' => 'survey_002',
             'title' => 'Demographics',
             'description' => 'Demographics survey collects information about you.',
         ]);

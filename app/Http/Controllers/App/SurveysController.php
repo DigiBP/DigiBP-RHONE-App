@@ -26,7 +26,39 @@ class SurveysController extends Controller
 
     public function store(Survey $survey, Request $request)
     {
-        dd($request->all());
+        $patient = auth()->user()->patient;
+
+        switch ($survey->camunda_identifier) {
+
+            //Diabetis Quality of Life
+            case 'survey_001':
+
+                $patient->surveys()->detach($survey);
+                $patient->surveys()->attach($survey);
+
+                $patient->surveys()->where('survey_id', $survey->id)->first()->pivot->update([
+                    'status' => Survey::STATUS_VALIDATING
+                ]);;
+
+                break;
+
+            //Demography
+            case 'survey_002':
+
+                if (!$patient->surveys()->where('survey_id', $survey->id)->exists())
+                {
+                    $patient->surveys()->attach($survey);
+                }
+
+                $patient->surveys()->where('survey_id', $survey->id)->first()->pivot->update([
+                'status' => Survey::STATUS_ACCEPTED
+                ]);;
+
+                break;
+            default:
+                dd('0');
+                break;
+        }
 
         return redirect()->route('dashboard.index');
     }
