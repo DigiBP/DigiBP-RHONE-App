@@ -17,7 +17,6 @@ class Survey extends Model
     protected $fillable = [
         'camunda_identifier',
         'availability',
-        'attempts',
         'camunda_identifier',
         'title',
         'description',
@@ -38,9 +37,8 @@ class Survey extends Model
 
     public function patients()
     {
-        return $this->belongsToMany(Patient::class,'patient_survey')->withPivot('status','attempts')->withTimestamps();
+        return $this->belongsToMany(Patient::class,'patient_survey')->withPivot('status','score')->withTimestamps();
     }
-
 
     public function availability()
     {
@@ -71,7 +69,6 @@ class Survey extends Model
 
         return $text;
     }
-
 
     public function availabilityBackground()
     {

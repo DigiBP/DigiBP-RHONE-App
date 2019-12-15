@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\CamundaRegistrationPost;
+use App\Jobs\CamundaSurveyPost;
 use App\Models\Survey;
 use Illuminate\Http\Request;
 
@@ -33,13 +35,24 @@ class SurveysController extends Controller
             //Diabetis Quality of Life
             case 'survey_001':
 
+                $results = $request->all();
+
+                unset($results['_token']);
+
+                $score = array_sum($results);
+
                 $patient->surveys()->detach($survey);
                 $patient->surveys()->attach($survey);
 
                 $patient->surveys()->where('survey_id', $survey->id)->first()->pivot->update([
-                    'status' => Survey::STATUS_VALIDATING
+                    'status' => Survey::STATUS_VALIDATING,
+                    'score' => $score
                 ]);;
 
+                if(app()->environment('production'))
+                {
+                    CamundaSurveyPost::dispatch($patient, $survey, $score);
+                }
                 break;
 
             //Demography
@@ -56,7 +69,6 @@ class SurveysController extends Controller
 
                 break;
             default:
-                dd('0');
                 break;
         }
 

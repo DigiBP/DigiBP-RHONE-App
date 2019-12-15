@@ -14,6 +14,10 @@
                         {{ $survey->description }}
                     </p>
 
+                    <p class="text-gray-500 text-base text-xs mb-2">
+                        UUID: {{ $survey->uuid }}
+                    </p>
+
                     @if($survey->availability)
 
                         @if(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->exists())

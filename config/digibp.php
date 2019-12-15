@@ -5,6 +5,7 @@ return [
 
     'camunda' => [
         'registration_post' => env('CAMUNDA_REGISTRATION_POST'),
+        'survey_post' => env('CAMUNDA_SURVEY_POST'),
     ],
 
     'documentation' => [

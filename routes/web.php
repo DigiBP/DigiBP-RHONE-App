@@ -21,14 +21,10 @@ Route::middleware(['auth'])->group(function ()
 
 });
 
-
 Route::get('/debug/patients', 'Debug\PatientsController@index')->name('debug.patients.index');
 
 Route::get('/debug/patients/approve/{patient}', 'Debug\PatientsController@approve')->name('debug.patients.approve');
 Route::get('/debug/patients/decline/{patient}', 'Debug\PatientsController@decline')->name('debug.patients.decline');
-
-Route::get('/debug/patients/demography/approve/{patient}', 'Debug\PatientsController@approve')->name('debug.demography.approve');
-Route::get('/debug/patients/demography/decline/{patient}', 'Debug\PatientsController@decline')->name('debug.demography.decline');
 
 Route::get('/debug/patients/diabetes/approve/{patient}', 'Debug\PatientsController@approve')->name('debug.diabetes.approve');
 Route::get('/debug/patients/diabetes/decline/{patient}', 'Debug\PatientsController@decline')->name('debug.diabetes.decline');

@@ -18,7 +18,6 @@ class CreateSurveysTable extends Migration
             $table->uuid('uuid');
             $table->boolean('availability')->default(false);
             $table->string('camunda_identifier')->nullable();
-            $table->integer('max_attempts')->nullable();
             $table->string('title');
             $table->longText('description')->nullable();
             $table->longText('explanation')->nullable();
@@ -31,7 +30,7 @@ class CreateSurveysTable extends Migration
             $table->unsignedBigInteger('survey_id')->nullable();
             $table->foreign('survey_id')->references('id')->on('surveys')->onDelete('cascade');
             $table->string('status')->default(\App\Models\Survey::STATUS_OPEN);
-            $table->integer('attempts')->default(0);
+            $table->string('score')->nullable();
             $table->timestamps();
         });
 

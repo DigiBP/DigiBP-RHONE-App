@@ -31,7 +31,7 @@ class Patient extends Model
 
     public function surveys()
     {
-        return $this->belongsToMany(Survey::class)->withPivot('status','attempts')->withTimestamps();
+        return $this->belongsToMany(Survey::class)->withPivot('status','score')->withTimestamps();
     }
 
     public function getAge()

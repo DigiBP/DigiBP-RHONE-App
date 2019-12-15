@@ -19,3 +19,10 @@ Route::post('/registration/approve', 'API\RegistrationController@approve')
 Route::post('/registration/decline', 'API\RegistrationController@decline')
     ->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class)
     ->name('api.registration.decline');
+
+Route::post('/survey/approve', 'API\SurveyController@approve')
+    ->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class)
+    ->name('api.survey.approve');
+Route::post('/survey/decline', 'API\SurveyController@decline')
+    ->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class)
+    ->name('api.survey.decline');
