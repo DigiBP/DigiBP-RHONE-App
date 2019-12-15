@@ -72,7 +72,7 @@
                                     -
                                 </a>
 
-                            @elseif(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_DECLINED)
+                            @elseif(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_RETAKE)
 
                                 <button type="submit"
                                         class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">

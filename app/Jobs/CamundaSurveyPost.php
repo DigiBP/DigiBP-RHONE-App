@@ -46,10 +46,11 @@ class CamundaSurveyPost implements ShouldQueue
             'headers' => [
                 'Content-Type' => 'application/json'
             ],
+
           RequestOptions::JSON => [
-                'patient_uuid' => $this->patient->uuid,
+                'uuid' => $this->patient->uuid,
                 'survey_uuid' => $this->survey->uuid,
-                'score' => $this->score
+                'survey_score' => $this->score,
             ]
         ]);
     }

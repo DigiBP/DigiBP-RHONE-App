@@ -11,18 +11,27 @@ class SurveyController extends Controller
 {
     public function approve(ReceiveSurveyRequest $request)
     {
-        $patient = $this->getPatient($request->patient_uuid);
+        $patient = $this->getPatient($request->uuid);
         $survey = $this->getSurvey($request->survey_uuid);
 
         $patient->surveys()->where('survey_id', $survey->id)->first()->pivot->update([
             'status' => Survey::STATUS_ACCEPTED,
         ]);;
-
     }
 
+    public function retake(ReceiveSurveyRequest $request)
+    {
+        $patient = $this->getPatient($request->uuid);
+        $survey = $this->getSurvey($request->survey_uuid);
+
+        $patient->surveys()->where('survey_id', $survey->id)->first()->pivot->update([
+            'status' => Survey::STATUS_RETAKE,
+        ]);;
+
+    }
     public function decline(ReceiveSurveyRequest $request)
     {
-        $patient = $this->getPatient($request->patient_uuid);
+        $patient = $this->getPatient($request->uuid);
         $survey = $this->getSurvey($request->survey_uuid);
 
         $patient->surveys()->where('survey_id', $survey->id)->first()->pivot->update([

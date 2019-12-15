@@ -23,6 +23,9 @@ Route::post('/registration/decline', 'API\RegistrationController@decline')
 Route::post('/survey/approve', 'API\SurveyController@approve')
     ->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class)
     ->name('api.survey.approve');
+Route::post('/survey/retake', 'API\SurveyController@retake')
+    ->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class)
+    ->name('api.survey.retake');
 Route::post('/survey/decline', 'API\SurveyController@decline')
     ->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class)
     ->name('api.survey.decline');

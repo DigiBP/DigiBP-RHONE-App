@@ -25,7 +25,7 @@ class ReceiveSurveyRequest extends FormRequest
     public function rules()
     {
         return [
-            'patient_uuid' => 'required|exists:patients,uuid',
+            'uuid' => 'required|exists:patients,uuid',
             'survey_uuid' => 'required|exists:surveys,uuid',
         ];
     }

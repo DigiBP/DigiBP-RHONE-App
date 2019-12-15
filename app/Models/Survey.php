@@ -12,6 +12,7 @@ class Survey extends Model
     const STATUS_OPEN = 'open';
     const STATUS_VALIDATING = 'validating';
     const STATUS_DECLINED = 'declined';
+    const STATUS_RETAKE = 'retake';
     const STATUS_ACCEPTED= 'accepted';
 
     protected $fillable = [
@@ -56,6 +57,10 @@ class Survey extends Model
                     $text = 'Accepted';
                     break;
 
+                case Survey::STATUS_RETAKE:
+                    $text = 'Retake';
+                    break;
+
                 case Survey::STATUS_DECLINED:
                     $text = 'Declined';
                     break;
@@ -86,6 +91,10 @@ class Survey extends Model
                     $background = 'bg-green-200';
                     break;
 
+                case Survey::STATUS_RETAKE:
+                    $background = 'bg-orange-200';
+                    break;
+
                 case Survey::STATUS_DECLINED:
                     $background = 'bg-red-200';
                     break;
@@ -93,7 +102,6 @@ class Survey extends Model
                 case Survey::STATUS_VALIDATING:
                     $background = 'bg-yellow-200';
                     break;
-
             }
         }
 

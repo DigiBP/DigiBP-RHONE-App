@@ -28,13 +28,14 @@
                                     {{ __('app/dashboard.application.survey.button_take') }}
                                 </a>
 
-                            @elseif(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_DECLINED)
+                            @elseif(auth()->user()->patient->surveys()->where('survey_id', $survey->id)->first()->pivot->status === \App\Models\Survey::STATUS_RETAKE)
 
-                                <a href="{{ route('surveys.show', $survey) }}" class="bg-red-500 hover:bg-red-700 text-xs text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                <a href="{{ route('surveys.show', $survey) }}" class="bg-orange-500 hover:bg-orange-700 text-xs text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     {{ __('app/dashboard.application.survey.button_retake') }}
                                 </a>
 
                             @endif
+
 
                         @else
 
