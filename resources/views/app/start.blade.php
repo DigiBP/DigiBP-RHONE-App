@@ -19,7 +19,7 @@
                     {{ __('app/start.button') }}
                 </a>
             </div>
-            
+
 
         </div>
 

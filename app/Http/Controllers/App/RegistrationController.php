@@ -45,7 +45,7 @@ class RegistrationController extends Controller
         }
 
         Notification::route('slack', config('services.slack.webhooks.patients'))
-            ->notify(new PatientRegistration($patient->name,$patient->birthdate, $patient->getAge()));
+            ->notify(new PatientRegistration($patient->name, $user->email, $patient->birthdate, $patient->getAge()));
 
         flash('Registration successfully submitted');
 

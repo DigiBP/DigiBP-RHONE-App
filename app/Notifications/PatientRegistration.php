@@ -16,12 +16,14 @@ class PatientRegistration extends Notification
      * @return void
      */
     protected $name;
+    protected $email;
     protected $birthdate;
     protected $age;
 
-    public function __construct($name, $birthdate, $age)
+    public function __construct($name, $email, $birthdate, $age)
     {
         $this->name = $name;
+        $this->email = $email;
         $this->birthdate = $birthdate;
         $this->age = $age;
     }
@@ -53,6 +55,7 @@ class PatientRegistration extends Notification
                 $attachment->title('Patient')
                     ->fields([
                         'Name' => $this->name,
+                        'E-Mail' => $this->email,
                         'Birthdate' => $this->birthdate,
                         'Age' => $this->age,
                     ]);
@@ -68,7 +71,8 @@ class PatientRegistration extends Notification
     public function toArray($notifiable)
     {
         return [
-            'email' => $this->email,
+            'name' => $this->name,
+            'email' => $this->email
         ];
     }
 }
