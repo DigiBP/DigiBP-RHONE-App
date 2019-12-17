@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'version' => '15.12.2019',
+    'version' => '17.12.2019',
 
     'camunda' => [
         'registration_post' => env('CAMUNDA_REGISTRATION_POST'),
@@ -17,7 +17,6 @@ return [
             'app' => 'https://github.com/DigiBP/DigiBP-RHONE-App'
         ]
     ],
-
 
 
 ];

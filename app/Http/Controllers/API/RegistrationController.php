@@ -9,6 +9,7 @@ use App\Jobs\DeleteUserJob;
 use App\Models\Patient;
 use App\Notifications\ApprovedUserRegistration;
 use App\Notifications\DeclinedUserRegistration;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 
 class RegistrationController extends Controller
@@ -16,6 +17,8 @@ class RegistrationController extends Controller
     public function approve(ApprovedRegistrationRequest $request)
     {
         $patient = $this->getPatient($request->uuid);
+
+        Log::info( 'uuid: ' . $patient->uuid .' status: approved');
 
         switch ($patient->status) {
             case Patient::STATUS_UNAPPROVED:
@@ -35,6 +38,8 @@ class RegistrationController extends Controller
     public function decline(DeclinedRegistrationRequest $request)
     {
         $patient = $this->getPatient($request->uuid);
+
+        Log::info( 'uuid: ' . $patient->uuid .' status: declined');
 
         switch ($patient->status) {
             case Patient::STATUS_UNAPPROVED:
