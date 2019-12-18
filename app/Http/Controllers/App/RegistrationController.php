@@ -7,7 +7,6 @@ use App\Http\Requests\App\SubmitRegistrationRequest;
 use App\Jobs\DetermineGenderJob;
 use App\Jobs\CamundaRegistrationPost;
 use App\Models\User;
-use App\Notifications\ContactRequestNotification;
 use App\Notifications\PatientRegistration;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
@@ -35,17 +34,15 @@ class RegistrationController extends Controller
         'birthdate' => $request->birthdate
        ]);
 
-       Log::info( 'uuid: ' . $patient->uuid .' name: ' . $patient->name . ' birthdate: ' . $patient->getAge());
-
-        DetermineGenderJob::dispatch($user->patient);
+       Log::info( 'uuid: ' . $patient->uuid .' name: ' . $patient->name . ' email: ' . $user->email . ' age: ' . $patient->getAge());
 
         if(app()->environment('production'))
         {
             CamundaRegistrationPost::dispatch($patient);
+            DetermineGenderJob::dispatch($patient);
+            Notification::route('slack', config('services.slack.webhooks.patients'))
+                ->notify(new PatientRegistration($patient->name, $user->email, $patient->birthdate, $patient->getAge()));
         }
-
-        Notification::route('slack', config('services.slack.webhooks.patients'))
-            ->notify(new PatientRegistration($patient->name, $user->email, $patient->birthdate, $patient->getAge()));
 
         flash('Registration successfully submitted');
 

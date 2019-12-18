@@ -21,5 +21,4 @@
 
 
 @section('scripts')
-    <script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/afa3a8630af76534c272bb8e9f9024e088b6abd89beda4107cd88be7dc477ba4.js"></script>
 @endsection

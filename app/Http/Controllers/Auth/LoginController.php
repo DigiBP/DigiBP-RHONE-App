@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -66,6 +67,8 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
+        Log::info(  ' email: ' . $user->email . ' Login');
+
         if($user->patient->status === Patient::STATUS_UNAPPROVED)
         {
             Auth::logout();

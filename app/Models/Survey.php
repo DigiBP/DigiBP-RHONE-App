@@ -62,7 +62,7 @@ class Survey extends Model
                     break;
 
                 case Survey::STATUS_DECLINED:
-                    $text = 'Declined';
+                    $text = 'Not Gated';
                     break;
 
                 case Survey::STATUS_VALIDATING:

@@ -19,7 +19,6 @@
             </div>
         </div>
 
-
         @auth
             <a class="bg-gray-300 hover:bg-gray-400 text-gray-800 text-xs font-bold py-2 px-4 rounded-l"
                href="{{ route('logout') }}"

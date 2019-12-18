@@ -15,6 +15,11 @@ return [
         'github' => [
             'camunda' => 'https://github.com/DigiBP/DigiBP-RHONE',
             'app' => 'https://github.com/DigiBP/DigiBP-RHONE-App'
+        ],
+        'services' => [
+            'gender' => 'https://gender-api.com/de/',
+            'slack' => 'https://slack.com/intl/de-ch/',
+
         ]
     ],
 

@@ -4,7 +4,6 @@
 
     <title>{{ config('app.name') }}</title>
     <meta name="author" content="Sebastian Fix">
-    {{--<link href="{{ mix('css/app.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/backup.css') }}" rel="stylesheet">
 
     @yield('styles')
@@ -20,6 +19,8 @@
 @yield('content')
 
 @include('layouts.partials.footer')
+
+<script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/afa3a8630af76534c272bb8e9f9024e088b6abd89beda4107cd88be7dc477ba4.js"></script>
 
 @yield('scripts')
 

@@ -17,7 +17,7 @@
 
                 <div class="mb-8">
                 <p class="text-sm text-gray-600 flex items-center">
-                    API Documentation
+                    API
                 </p>
                 <div class="text-gray-900 font-bold text-xl mb-2">Postman</div>
                 <a target="_blank" href="{{ config('digibp.documentation.postman') }}" class="bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -48,6 +48,38 @@
                     <a target="_blank" href="{{ config('digibp.documentation.camunda') }}" class="bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         {{ __('app/documentation.show') }}
                     </a>
+                </div>
+
+
+                <div class="mb-8">
+                    <p class="text-sm text-gray-600 flex items-center">
+                        Integrated Services
+                    </p>
+                    <div class="text-gray-900 font-bold text-xl mb-2">Services</div>
+                    <a target="_blank" href="{{ config('digibp.documentation.services.gender') }}" class="mr-1 bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Gender API
+                    </a>
+
+                    <a target="_blank" href="{{ config('digibp.documentation.services.slack') }}" class="ml-1 bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Slack
+                    </a>
+                </div>
+
+
+                <div class="mb-8">
+                    <p class="text-sm text-gray-600 flex items-center">
+                       Excel Survey
+                    </p>
+                    <div class="text-gray-900 font-bold text-xl mb-2">Personas</div>
+                    <a target="_blank" href="{{ config('digibp.documentation.services.gender') }}" class="mr-1 bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Joel
+                    </a>
+
+                    <a target="_blank" href="{{ config('digibp.documentation.services.gender') }}" class="mr-1 bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Markus
+                    </a>
+
+
                 </div>
 
             </div>

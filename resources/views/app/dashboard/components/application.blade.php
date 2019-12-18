@@ -14,7 +14,7 @@
                         {{ $survey->description }}
                     </p>
 
-                    <p class="text-gray-100 text-base text-xs mb-2">
+                    <p style="font-size: 8px;" class="text-base text-xs mb-2">
                         {{ $survey->uuid }}
                     </p>
 
@@ -38,15 +38,11 @@
 
 
                         @else
-
                             <a href="{{ route('surveys.show', $survey) }}" class="bg-blue-500 hover:bg-blue-700 text-xs text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 {{ __('app/dashboard.application.survey.button_take') }}
                             </a>
-
                          @endif
-
                     @endif
-
                 </div>
             </div>
 
@@ -56,12 +52,9 @@
     @endif
 
     <div class="flex flex-wrap items-center">
-
             <span
                 class="bg-gray-500 hover:bg-gray-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-not-allowed">
             {{ __('app/dashboard.application.button') }}
         </span>
-
-
     </div>
 </div>
