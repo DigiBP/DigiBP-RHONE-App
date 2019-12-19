@@ -10,6 +10,7 @@
     <div class="md:w-1/2 md:mx-auto mt-24">
         <div class="p-6">
             <h1 class="text-6xl font-bold leading-tight">{{ __('app/start.title') }}</h1>
+            <h2 class="uppercase text-2xl font-light leading-tight">{{ __('app/start.subtitle') }}</h2>
 
             <p class="leading-normal text-xl mt-2">{{ __('app/start.paragraph') }}</p>
 
