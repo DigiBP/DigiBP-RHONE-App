@@ -41,10 +41,10 @@
                         </p>
                         <div class="text-black font-bold text-xl mb-2">Joel</div>
                         <p class="text-grey-darker text-base">
-                            Joel, 25 years single, postgraduate student.
+                            Joel, 25 years single, post graduate student.
                             Type 1 diabetes patient,
-                            Using insulin and takingoral medications.
-                            Sporty, busy social life but struggles withcarb counting
+                            Using insulin and taking oral medications.
+                            Sporty, busy social life but struggles with carb counting.
 
                         </p>
                     </div>
@@ -62,9 +62,9 @@
                         </p>
                         <div class="text-black font-bold text-xl mb-2">Markus</div>
                         <p class="text-grey-darker text-base">
-                            Markus, 35 years full timeteacher with 2 young kids& wife.
-                            Work Life Balance is becomingincreasing difficult to maintain.Hemoglobin A1c,%
-                            hasprogressively increased
+                            Markus, 35 years full timeteacher with 2 young kids & wife.
+                            Work Life Balance is becoming increasing difficult to maintain. Hemoglobin A1c,%
+                            has progressively increased.
                         </p>
                     </div>
 
@@ -89,9 +89,9 @@
                         </p>
                         <div class="text-black font-bold text-xl mb-2">Ingrid</div>
                         <p class="text-grey-darker text-base">
-                            Ingrid, 54 years had hadan active life until the last3 years, when her husbandpassed
-                            away. Her Body MassIndex BMI has now increasedto 35, with an increasedmetabolic risk
-                            profile. Dietinghas affected her social life
+                            Ingrid, 54 years had hadan active life until the last3 years, when her husband  passed
+                            away. Her Body Mass Index BMI has now increased to 35, with an increased metabolic risk
+                            profile. Dieting has affected her social life.
                         </p>
                     </div>
 

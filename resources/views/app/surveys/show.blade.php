@@ -26,7 +26,7 @@
                         <select id="{{ $question->type }}"
                                 class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                 name="{{ $question->type }}" required>
-                            <option value="" selected disabled>{{ __('app/demography.please_select') }}</option>
+                            <option value="" selected disabled>{{ __('app/survey.please_select') }}</option>
 
                             @foreach($question->answers as $answer)
                                 <option @if(old($question->type) === $answer->value) selected
@@ -55,7 +55,7 @@
 
                             <button type="submit"
                                     class="ml-1 mr-1 bg-blue-500 hover:bg-blue-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                {{ __('app/demography.button') }}
+                                {{ __('app/survey.button') }}
                             </button>
 
                             @if($survey->id === 1)

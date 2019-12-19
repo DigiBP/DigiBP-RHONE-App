@@ -17,7 +17,7 @@ Route::middleware(['auth'])->group(function ()
     Route::get('/application/surveys/{survey}', 'App\SurveysController@show')->name('surveys.show');
     Route::post('/application/surveys/{survey}', 'App\SurveysController@store')->name('surveys.store');
 
-    Route::post('/application/submit', 'App\ApplicationController@index')->name('application.submit');
+    Route::get('/application/submit', 'App\ApplicationController@store')->name('application.submit');
 
 });
 

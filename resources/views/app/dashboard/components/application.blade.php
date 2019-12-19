@@ -52,9 +52,9 @@
     @endif
 
     <div class="flex flex-wrap items-center">
-            <span
-                class="bg-gray-500 hover:bg-gray-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-not-allowed">
+            <a href="{{ route('application.submit') }}"
+                class="bg-green-500 hover:bg-green-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ">
             {{ __('app/dashboard.application.button') }}
-        </span>
+        </a>
     </div>
 </div>
