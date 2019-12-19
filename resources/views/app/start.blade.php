@@ -24,6 +24,21 @@
 
         </div>
 
+
+        <div class="p-6">
+            <h1 class="text-4xl font-bold leading-tight">Business Case</h1>
+            <h2 class="uppercase text-2xl font-light leading-tight">Diabetes Patient Segmentationby age group</h2>
+
+            <p class="leading-normal text-xl mt-2">30% of clinical development time is spent on patient recruitment a
+                daily delay in patient recruitment is estimated to cost life sciences USD 80 million per day More
+                than 50% of trial centers are unable to fulfill their patient recruitment targets new innovative
+                therapies can not be evaluated or delayed recently, initiatives in recruitment via social media and
+                patient associations.
+            </p>
+
+
+        </div>
+
         <div class="p-6">
             <h1 class="text-4xl font-bold leading-tight">Personas</h1>
             <h2 class="uppercase text-2xl font-light leading-tight">Diabetes Patient Segmentationby age group</h2>
@@ -89,7 +104,7 @@
                         </p>
                         <div class="text-black font-bold text-xl mb-2">Ingrid</div>
                         <p class="text-grey-darker text-base">
-                            Ingrid, 54 years had hadan active life until the last3 years, when her husband  passed
+                            Ingrid, 54 years had hadan active life until the last3 years, when her husband passed
                             away. Her Body Mass Index BMI has now increased to 35, with an increased metabolic risk
                             profile. Dieting has affected her social life.
                         </p>
@@ -106,7 +121,7 @@
             <h1 class="text-4xl font-bold leading-tight">Outlook & Next steps</h1>
 
             <h3 class=" text-lg font-bold mt-6">
-               <b class="bg-red-200">Shorter communication time for patients</b>
+                <b class="bg-red-200">Shorter communication time for patients</b>
             </h3>
 
             <p>
@@ -116,7 +131,8 @@
             </p>
 
             <h3 class=" text-lg font-bold mt-6">
-                <b class="bg-red-200"> Potentially leading to improved and faster patient recruitment for clinical trials sponsors
+                <b class="bg-red-200"> Potentially leading to improved and faster patient recruitment for clinical
+                    trials sponsors
                     (Life Sciences Companies and CROs)</b>
             </h3>
 
@@ -133,6 +149,14 @@
             </h3>
 
 
+            <h3 class="text-lg font-bold mt-6">
+                <b class="bg-orange-200"> For Trials Sponsors</b>
+            </h3>
+
+            <p>Improved Net present value (NPV), with increased confidence (increase in eNPV)"
+
+                for example, a delay of 6 months to 1 year for launch, significantly impacts the NPV.
+            </p>
 
         </div>
     </div>

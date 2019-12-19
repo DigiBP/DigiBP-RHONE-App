@@ -4,7 +4,6 @@ namespace App\Http\Controllers\App;
 
 use App\Http\Controllers\Controller;
 use App\Notifications\AcceptedRegistration;
-use App\Notifications\ApprovedUserRegistration;
 use Illuminate\Support\Facades\Auth;
 
 class ApplicationController extends Controller
