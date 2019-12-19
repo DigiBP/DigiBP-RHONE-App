@@ -27,7 +27,6 @@
 
                 <p>
                     Recruitment into clinical trials are complex decision making by patients is under estimated. The following points are considered for this project. The project carried out the focus on patients diagnosed with chronic illness example diabetes.
-
                 </p>
 
                 <ul class="mt-2 list-disc">
@@ -43,6 +42,14 @@
                         For eligible patients, Long periods before “warm handover” to a medical person for further screening potential patients are loss to any follow-ups. Long periods of “ radio” silence
                     </li>
                 </ul>
+
+                <div class="mt-4">
+                    <a target="_blank" href="{{ asset('files/as_is_process.bpmn') }}"
+                       class="bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        As-Is (BPMN)
+                    </a>
+                </div>
+
 
             </div>
 
@@ -151,6 +158,24 @@
                         Userlike
                     </a>
                 </div>
+
+                <div class="mb-8">
+                    <p class="text-sm text-gray-600 flex items-center">
+                        Application
+                    </p>
+                    <div class="text-gray-900 font-bold text-xl mb-2">Pact-D </div>
+
+                    <a target="_blank" href="https://www.digitalocean.com"
+                       class="mr-1 bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Digital Ocean
+                    </a>
+
+                    <a target="_blank" href="https://forge.laravel.com"
+                       class="ml-1 mr-1 bg-red-500 hover:bg-red-700 text-gray-100 text-xs font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Laravel Forge
+                    </a>
+                </div>
+
 
 
                 <div class="mb-8">

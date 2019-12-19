@@ -10,7 +10,6 @@
     <div class="md:w-1/2 md:mx-auto mt-24">
         <div class="p-6">
             <h1 class="text-6xl font-bold leading-tight">{{ __('app/start.title') }}</h1>
-            <h2 class="uppercase text-2xl font-light leading-tight">{{ __('app/start.subtitle') }}</h2>
 
             <p class="leading-normal text-xl mt-2">{{ __('app/start.paragraph') }}</p>
 
@@ -41,7 +40,6 @@
 
         <div class="p-6">
             <h1 class="text-4xl font-bold leading-tight">Personas</h1>
-            <h2 class="uppercase text-2xl font-light leading-tight">Diabetes Patient Segmentationby age group</h2>
 
             <div class="w-full flex mt-4">
                 <div
@@ -137,6 +135,22 @@
             </h3>
 
             <h3 class="text-lg font-bold mt-6">
+                <b class="bg-orange-200">For Trials Sponsors</b>
+            </h3>
+
+            <p>Improved Net present value (NPV), with increased confidence (increase in eNPV)"
+
+                for example, a delay of 6 months to 1 year for launch, significantly impacts the NPV.
+            </p>
+
+            <h3 class="text-lg font-bold mt-6">
+                <b class="bg-yellow-200">For Patients</b>
+            </h3>
+
+            <p>Faster access to new innovative therapies with a patient centric process (trust  & respect)
+            </p>
+
+            <h3 class="text-lg font-bold mt-6">
                 <b class="bg-green-200">Clinical validation of the app</b>
             </h3>
 
@@ -149,14 +163,8 @@
             </h3>
 
 
-            <h3 class="text-lg font-bold mt-6">
-                <b class="bg-orange-200"> For Trials Sponsors</b>
-            </h3>
 
-            <p>Improved Net present value (NPV), with increased confidence (increase in eNPV)"
 
-                for example, a delay of 6 months to 1 year for launch, significantly impacts the NPV.
-            </p>
 
         </div>
     </div>
