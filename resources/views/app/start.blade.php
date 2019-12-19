@@ -26,7 +26,6 @@
 
         <div class="p-6">
             <h1 class="text-4xl font-bold leading-tight">Business Case</h1>
-            <h2 class="uppercase text-2xl font-light leading-tight">Diabetes Patient Segmentationby age group</h2>
 
             <p class="leading-normal text-xl mt-2">30% of clinical development time is spent on patient recruitment a
                 daily delay in patient recruitment is estimated to cost life sciences USD 80 million per day More
@@ -40,6 +39,7 @@
 
         <div class="p-6">
             <h1 class="text-4xl font-bold leading-tight">Personas</h1>
+            <h2 class="uppercase text-2xl font-light leading-tight">Diabetes Patient Segmentationby age group</h2>
 
             <div class="w-full flex mt-4">
                 <div
